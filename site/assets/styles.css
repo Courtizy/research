@@ -1,0 +1,60 @@
+/* Research & Analysis pages. Colors and type come from brand/css/brand.css. */
+[data-app="research"] {
+  --brand-fill: var(--core-outline);
+  --accent: var(--ink);
+  --series-1: var(--c-valuation); --series-2: var(--c-tps); --series-3: var(--c-roi);
+  --series-4: var(--c-sky); --series-5: var(--c-plum);
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.header-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.app-status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-secondary); }
+.app-status__dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid currentColor; box-sizing: border-box; }
+.app-status--live .app-status__dot { background: currentColor; }
+.tabbar { border-bottom: 1px solid var(--line); background: var(--panel); }
+.tabs { max-width: 1120px; margin: 0 auto; padding: 0 16px; display: flex; gap: 4px; overflow-x: auto; }
+.tab { background: none; border: 0; border-bottom: 2px solid transparent; color: var(--ink-secondary);
+  font: inherit; font-size: 15px; padding: 10px 12px; min-height: 44px; cursor: pointer; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+main.wrap { padding-top: 24px; padding-bottom: 24px; }
+.panel { display: grid; gap: 16px; }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-secondary); margin: 0; }
+h2 { margin: 0 0 8px; font-size: 1.25rem; }
+h3 { margin: 16px 0 6px; font-size: 1rem; }
+.lead { font-size: 1.125rem; margin: 4px 0 0; max-width: 72ch; }
+.prose { max-width: 72ch; }
+.prose p, .prose li { margin: 6px 0; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); padding: 16px; }
+.kpi:first-child { border-top: 3px solid var(--series-1); }
+.kpi__value { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 1.75rem; font-weight: 600; }
+.kpi__label { font-size: 0.875rem; color: var(--ink-secondary); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 16px; }
+.chart { height: 340px; }
+.chart-note { font-size: 0.875rem; color: var(--ink-secondary); margin: 8px 0 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.875rem; }
+th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--ink-secondary); font-weight: 500; }
+td.num { font-family: var(--font-mono); }
+.table-wrap { overflow-x: auto; }
+.buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--line);
+  color: var(--ink); text-decoration: none; font-weight: 500; }
+.button--primary { background: var(--brand-fill); color: var(--on-brand-fill); border-color: var(--brand-fill); }
+.study-card { display: grid; gap: 8px; text-decoration: none; color: var(--ink); border-top: 6px solid var(--brand-fill); }
+.study-card:hover { border-color: var(--accent); }
+.tag { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border: 1px solid var(--line); color: var(--ink-secondary); }
+.box { border-left: 3px solid var(--line); padding: 8px 12px; background: var(--page); }
+.checklist { list-style: none; padding: 0; }
+.checklist li::before { content: "\2713  "; color: var(--status-good-text); }
+.brand-footer p { margin: 4px 0; }
+.small { font-size: 0.75rem; }
+@media (max-width: 640px) { .kpis { grid-template-columns: 1fr 1fr; } .kpi__value { font-size: 1.375rem; } }
+.panel[hidden] { display: none; }
+
+/* Memo: one readable column */
+main.memo { max-width: 720px; }
+.memo h2 { margin: 28px 0 8px; font-size: 1.15rem; }
+.memo .lead { font-size: 1.2rem; line-height: 1.45; }
+.memo li { margin: 6px 0; line-height: 1.5; }
+.memo__links { margin-top: 28px; display: flex; gap: 8px; flex-wrap: wrap; }

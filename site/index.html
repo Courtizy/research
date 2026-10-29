@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-app="research">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research &amp; Analysis · Jason C. Courtoy</title>
+  <meta name="description" content="Original studies on public data: the question, the evidence, how sure we are, and what to do about it.">
+  <link rel="icon" type="image/svg+xml" href="brand/icons/core.svg">
+  <link rel="stylesheet" href="brand/css/brand.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="hub-bar"><div class="hub-bar__inner">
+    <a href="https://courtizy.github.io/">← Decision Models</a><span>Jason C. Courtoy</span>
+  </div></div>
+  <header class="brand-header">
+    <div class="brand-header__inner">
+      <div class="brand-tile" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="28" cy="28" r="14"/><path d="M38 38l14 14"/><path d="M22 32l5-6 4 3 5-7"/></svg>
+      </div>
+      <div class="brand-header__text">
+        <h1 class="brand-header__name">Research &amp; Analysis</h1>
+        <p class="brand-header__question">What does the evidence actually say?</p>
+      </div>
+      <span class="brand-header__by">by Jason C. Courtoy</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="prose">
+        <p class="eyebrow">Studies</p>
+        <p class="lead">The models answer one question each. These studies test them, and the questions around them, on real public data, then say what a decision-maker should do differently.</p>
+        <p class="muted">Each study states its question and hypotheses up front, publishes its code and data sources, reports how sure it is, and ends in a one-page memo.</p>
+      </div>
+      <div class="grid-2">
+        <a class="brand-card study-card" href="forecast-accuracy/">
+          <p class="eyebrow">01 · Forecasting</p>
+          <h2>How far should you trust the first five years of a DCF?</h2>
+          <p class="muted" id="card-forecast">Mechanical revenue forecasts built only from point-in-time SEC filings, scored against what companies later reported, and a check on whether the Valuation Model's ranges are honest.</p>
+          <span><span class="app-status"><span class="app-status__dot" aria-hidden="true"></span>In development</span></span>
+          <span class="button button--primary" style="justify-self:start">Read the study →</span>
+        </a>
+        <div class="brand-card study-card" style="opacity:.75">
+          <p class="eyebrow">02 · Valuation</p>
+          <h2>What drives valuation multiples across industries?</h2>
+          <p class="muted">Profitability, growth and risk against EV multiples, at the industry level with Damodaran's public data.</p>
+          <span><span class="app-status"><span class="app-status__dot" aria-hidden="true"></span>Coming next</span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p>Personal project · public or synthetic data only · not investment advice · not endorsed by DoD or the U.S. Air Force</p>
+    <p class="small">Decisions. Probabilities. Limits.</p>
+  </footer>
+</body>
+</html>
