@@ -115,3 +115,28 @@ def test_study_is_deterministic():
     a = study.run(_random_panels(), engine="t", as_of="x", universe_size=30)
     b = study.run(_random_panels(), engine="t", as_of="x", universe_size=30)
     assert a == b
+
+
+def test_calibration_table_is_monotone_and_scaled():
+    from research.forecast_accuracy import calibration
+    assert calibration.revenue_vol([100, 110, 121, 133.1]) == pytest.approx(0)
+    assert calibration.revenue_vol([100]) == calibration.DEFAULT_VOL
+    errs = calibration.scaled_errors(_random_panels())
+    assert all(errs[h] for h in (1, 3, 5))
+    t = calibration.table(errs, center="model", source="test", as_of="x")
+    for q in t["quantiles"].values():
+        assert q == sorted(q) and len(q) == len(t["p"])
+    assert 0.05 in t["p"] and 0.95 in t["p"] and 0.025 in t["p"]
+
+
+def test_blend_is_the_geometric_mean_of_flat_model_and_sector():
+    from research.forecast_accuracy import calibration
+    panels = _random_panels()
+    study.add_sector_forecasts(panels)
+    calibration.add_blend(panels)
+    o = next(o for p in panels for o in p["origins"] if o["revenue"].get("sector") and o["revenue"]["blend"])
+    h = min(o["revenue"]["blend"])
+    want = (o["r0"] * o["revenue"]["model"][h] * o["revenue"]["sector"][h]) ** (1 / 3)
+    assert o["revenue"]["blend"][h] == pytest.approx(want)
+    sg = calibration.sector_growth(panels, min_peers=1)
+    assert "Finance" not in sg and all(v["n"] >= 1 for d in sg.values() for v in d.values())
