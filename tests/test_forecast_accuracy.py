@@ -140,3 +140,13 @@ def test_blend_is_the_geometric_mean_of_flat_model_and_sector():
     assert o["revenue"]["blend"][h] == pytest.approx(want)
     sg = calibration.sector_growth(panels, min_peers=1)
     assert "Finance" not in sg and all(v["n"] >= 1 for d in sg.values() for v in d.values())
+
+
+def test_tested_coverage_is_near_nominal_for_stable_errors():
+    from research.forecast_accuracy import calibration
+    rng = random.Random(5)
+    pairs = {h: [(y, rng.gauss(0, 1)) for y in range(2005, 2025) for _ in range(60)] for h in (1, 3)}
+    t = calibration.tested_coverage(pairs, min_calibration=100)
+    for lvl, nominal in (("80", 0.8), ("90", 0.9)):
+        for h in ("1", "3"):
+            assert abs(t["levels"][lvl][h]["coverage"] - nominal) < 0.04
