@@ -8,7 +8,8 @@ The models answer one question each. These studies test them, and the questions 
 
 | # | Study | Question | Status |
 |---|---|---|---|
-| 01 | [Forecast Accuracy](https://courtizy.github.io/research/forecast-accuracy/) | How far should you trust the first five years of a DCF? | In development |
+| 01 | [Forecast Accuracy](https://courtizy.github.io/research/notebooks/forecast-accuracy.html) | How far should you trust the first five years of a DCF? | Live |
+| 01b | [Did the fixes work?](https://courtizy.github.io/research/notebooks/forecast-accuracy-rescore.html) | Study 01 scored again against the fixed Valuation Model | Live |
 | 02 | Valuation Drivers | What drives valuation multiples across industries? | Planned |
 
 ## How it's built
@@ -30,6 +31,7 @@ pip install -e ".[dev]"
 pytest -q
 export SEC_USER_AGENT="Your Name you@example.com"        # the SEC requires contact details
 python scripts/run_forecast_accuracy.py                  # about 1–2 hours for the full universe; resumes if stopped
+python scripts/run_forecast_rescore.py                   # Study 01b from the same panels, in seconds
 python scripts/export_site.py
 pip install -e ".[notebooks]"                            # plus Quarto 1.6 (quarto.org)
 quarto render notebooks --execute                        # site/notebooks/<study>.html

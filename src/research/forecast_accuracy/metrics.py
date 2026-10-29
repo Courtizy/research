@@ -162,8 +162,8 @@ def margin_accuracy(rows: list[dict]) -> list[dict]:
     return out
 
 
-def by_division(rows: list[dict], h: int = 3) -> list[dict]:
-    """Model and hist3 skill against naive by sector division, at one horizon."""
+def by_division(rows: list[dict], h: int = 3, methods=("model", "hist3")) -> list[dict]:
+    """Each method's skill against naive by sector division, at one horizon."""
     groups: dict[str, list[dict]] = defaultdict(list)
     for r in rows:
         if r["h"] == h and r["division"]:
@@ -173,7 +173,7 @@ def by_division(rows: list[dict], h: int = 3) -> list[dict]:
         if len({r["cik"] for r in rs}) < 10:
             continue
         row = {"division": d, "n": len(rs), "companies": len({r["cik"] for r in rs})}
-        for m in ("model", "hist3"):
+        for m in methods:
             sub = [r for r in rs if m in r["err"]]
             ae = sum(abs(r["err"][m]) for r in sub)
             an = sum(abs(r["err"]["naive"]) for r in sub)
