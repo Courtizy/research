@@ -160,3 +160,41 @@ def test_tested_coverage_is_near_nominal_for_stable_errors():
     for lvl, nominal in (("80", 0.8), ("90", 0.9)):
         for h in ("1", "3"):
             assert abs(t["levels"][lvl][h]["coverage"] - nominal) < 0.04
+
+
+def test_rescore_scores_before_and_after_on_the_same_observations():
+    from research.forecast_accuracy import rescore
+    res = rescore.run(_random_panels(), engine="t", as_of="x", universe_size=30, min_calibration=50)
+    assert {a["method"] for a in res["accuracy"]} == {"naive", "model", "blend"}
+    for c in res["coverage"]:
+        assert 0 <= c["before"]["share"] <= 1 and c["before"]["n"] == c["n"]
+        assert set(c["after"]) == {"80", "90", "95"}
+        assert c["after"]["80"]["share"] <= c["after"]["90"]["share"] <= c["after"]["95"]["share"]
+        assert c["after"]["80"]["above"] < c["after"]["95"]["above"]
+    assert [g["group"] for g in res["coverage_by_volatility"]] == list(rescore.VOL_GROUPS)
+    assert res["headline"]["kpis"]
+
+
+def test_range_hits_never_see_the_future():
+    """A base year's range is built only from errors known by then: wrecking later actuals leaves it unchanged."""
+    from research.forecast_accuracy import calibration, rescore
+    panels = _random_panels()
+    study.add_sector_forecasts(panels)
+    calibration.add_blend(panels)
+    before = [r for r in rescore.range_hits(panels, min_calibration=50) if r["year"] + r["h"] < 2018]
+    for p in panels:
+        for o in p["origins"]:
+            o["actual"] = {h: (a * 10 if int(o["base_end"][:4]) + h >= 2018 else a) for h, a in o["actual"].items()}
+    after = [r for r in rescore.range_hits(panels, min_calibration=50) if r["year"] + r["h"] < 2018]
+    assert before and before == after
+
+
+def test_blend_matches_the_engine():
+    """The blend scored here is the engine's default base case: same path for the same inputs."""
+    from valuation._core.projection import project
+    g0, gs = 0.12, 0.04
+    years = project({"revenue": 100.0}, {"revenue": {"method": "blend", "g0": g0, "g_terminal": 0.025,
+                                                     "fade_years": 10, "sector_growth": gs}}, 5)["years"]
+    fade = methods.fade_path(100.0, g0, 5)
+    want = [(100.0 * f * 100.0 * (1 + gs) ** t) ** (1 / 3) for t, f in enumerate(fade, 1)]
+    assert [y["revenue"] for y in years] == pytest.approx(want)

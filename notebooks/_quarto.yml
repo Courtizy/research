@@ -28,10 +28,3 @@ format:
     include-in-header: _partials/head.html
     include-before-body: _partials/header.html
     include-after-body: _partials/footer.html
-    other-links:
-      - text: Download notebook (.ipynb)
-        href: forecast-accuracy.ipynb
-      - text: One-page memo
-        href: ../forecast-accuracy/memo.html
-      - text: Code on GitHub
-        href: https://github.com/Courtizy/research
