@@ -62,9 +62,10 @@ def scale(history: list[float]) -> float:
     return revenue_vol(history) + SCALE_FLOOR
 
 
-def scaled_errors(panels: list[dict], center: str = "model") -> dict[int, list[float]]:
-    """Per horizon: ln(actual / forecast) / scale for every scored origin (finance excluded)."""
-    out: dict[int, list[float]] = {h: [] for h in HORIZONS}
+def scaled_errors(panels: list[dict], center: str = "model", *, with_years: bool = False) -> dict[int, list]:
+    """Per horizon: ln(actual / forecast) / scale for every scored origin (finance excluded);
+    with_years=True gives (base year, error) pairs for the out-of-sample check."""
+    out: dict[int, list] = {h: [] for h in HORIZONS}
     for p in panels:
         if division(p.get("sic")) == "Finance":
             continue
@@ -75,7 +76,8 @@ def scaled_errors(panels: list[dict], center: str = "model") -> dict[int, list[f
             for h in HORIZONS:
                 a = o["actual"].get(h)
                 if a and a > 0 and f.get(h) and f[h] > 0:
-                    out[h].append(math.log(a / f[h]) / s)
+                    e = math.log(a / f[h]) / s
+                    out[h].append((int(o["base_end"][:4]), e) if with_years else e)
     return out
 
 
@@ -86,7 +88,32 @@ def _q(sorted_v: list[float], p: float) -> float:
     return sorted_v[lo] + (sorted_v[hi] - sorted_v[lo]) * (i - lo)
 
 
-def table(errors: dict[int, list[float]], *, center: str, source: str, as_of: str) -> dict:
+def tested_coverage(pairs: dict[int, list[tuple[int, float]]], levels=(0.8, 0.9, 0.95),
+                    first_year: int = 2014, min_calibration: int = 200) -> dict:
+    """Out of sample: each base year Y is scored with quantiles of errors already known at Y
+    (base year + h <= Y), the way the model would have been calibrated on the day."""
+    out: dict[str, dict] = {}
+    for lvl in levels:
+        lo_p, hi_p = (1 - lvl) / 2, 1 - (1 - lvl) / 2
+        by_h = {}
+        for h, rows in pairs.items():
+            hits = n = 0
+            for y in sorted({y for y, _ in rows if y >= first_year}):
+                cal = sorted(e for yy, e in rows if yy + h <= y)
+                if len(cal) < min_calibration:
+                    continue
+                lo, hi = _q(cal, lo_p), _q(cal, hi_p)
+                test = [e for yy, e in rows if yy == y]
+                hits += sum(lo <= e <= hi for e in test)
+                n += len(test)
+            if n:
+                by_h[str(h)] = {"coverage": round(hits / n, 4), "n": n}
+        out[f"{round(lvl * 100)}"] = by_h
+    return {"method": f"expanding window: base years {first_year} on, each scored with quantiles from errors known by then",
+            "levels": out}
+
+
+def table(errors: dict[int, list[float]], *, center: str, source: str, as_of: str, tested: dict | None = None) -> dict:
     """The file the Valuation Model reads: scaled-error quantiles on GRID for each horizon."""
     return {
         "what": "Quantiles of ln(actual revenue / forecast) divided by (revenue volatility + floor), by years out",
@@ -96,4 +123,5 @@ def table(errors: dict[int, list[float]], *, center: str, source: str, as_of: st
         "n": {str(h): len(v) for h, v in errors.items()},
         "p": GRID,
         "quantiles": {str(h): [round(_q(sorted(v), p), 5) for p in GRID] for h, v in errors.items() if v},
+        "tested": tested,
     }
