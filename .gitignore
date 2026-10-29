@@ -1,0 +1,14 @@
+# SEC downloads and intermediate panels (rebuilt by scripts/run_forecast_accuracy.py)
+/data/
+/.cache/
+# built by scripts/export_site.py
+/site/brand/
+# private inputs never leave your machine
+/private/*
+!/private/README.md
+# python
+__pycache__/
+*.egg-info/
+build/
+.pytest_cache/
+.venv/
