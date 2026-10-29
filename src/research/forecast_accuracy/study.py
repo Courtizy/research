@@ -82,11 +82,19 @@ def headline(res: dict) -> dict:
     c1, c3, c5 = (cov.get(h, {}).get("coverage") for h in (1, 3, 5))
     lead = (f"Three years out, a forecast built from a company's own filings misses actual revenue by a median "
             f"{_pct(miss)}, and the model's 80% range contains the outcome {_pct(c3)} of the time.")
-    skill = m3["skill_vs_naive"]
-    sub = (f"The model's fading-growth forecast has {_pct(abs(skill))} {'less' if skill >= 0 else 'more'} error than "
-           f"assuming no change, so the method {'helps' if skill >= 0 else 'does worse than doing nothing'}. "
-           + (f"The range around it is {'far ' if c3 < 0.6 else ''}narrower than the uncertainty it describes."
-              if c3 < 0.8 else "The range around it is about as wide as the uncertainty it describes, or wider."))
+    skill, t = m3["skill_vs_naive"], m3["loss_diff_vs_naive"]["t"]
+    h3 = acc.get(("hist3", 3))
+    if t is not None and abs(t) < 2:
+        sub = (f"The model's fading-growth forecast is about as accurate as assuming no change "
+               f"({_pct(abs(skill))} {'less' if skill >= 0 else 'more'} error, t = {t:.1f}, not a real difference). ")
+    else:
+        sub = (f"The model's fading-growth forecast has {_pct(abs(skill))} {'less' if skill >= 0 else 'more'} error than "
+               f"assuming no change, so the method {'helps' if skill >= 0 else 'does worse than doing nothing'}. ")
+    if h3 and h3["loss_diff_vs_naive"]["t"] is not None and h3["loss_diff_vs_naive"]["t"] >= 2:
+        sub += (f"Extrapolating a company's own three-year growth does clearly worse: {_pct(abs(h3['skill_vs_naive']))} "
+                f"more error (t = {h3['loss_diff_vs_naive']['t']:.1f}). ")
+    sub += (f"The range around the model is {'far ' if c3 < 0.6 else ''}narrower than the uncertainty it describes."
+            if c3 < 0.8 else "The range around the model is about as wide as the uncertainty it describes, or wider.")
 
     findings = []
     g = res["bias_by_growth"]
@@ -145,9 +153,14 @@ def memo(res: dict) -> dict:
                                  f"weak guide to the next three years."})
         changes.append("Test a shorter fade, or a starting growth rate shrunk toward the sector, against this set.")
     skill, t = m3["skill_vs_naive"], m3["loss_diff_vs_naive"]["t"]
-    if skill < 0:
+    h3 = acc.get(("hist3", 3))
+    if t is not None and t > -2:   # the model did not measurably beat no change
+        worse = (f" Straight extrapolation of recent growth was {_pct(abs(h3['skill_vs_naive']))} worse "
+                 f"(t = {h3['loss_diff_vs_naive']['t']:.1f})."
+                 if h3 and h3["loss_diff_vs_naive"]["t"] is not None and h3["loss_diff_vs_naive"]["t"] >= 2 else "")
         practice.append({"title": "Beat no change first.",
-                         "text": f"Assuming revenue stays flat was {_pct(abs(skill))} more accurate three years out "
-                                 f"(t = {t:.1f}). Any growth story should be argued against that baseline, not assumed."})
+                         "text": f"Three years out, the model was not measurably better than assuming revenue stays flat "
+                                 f"({_pct(abs(skill))} {'less' if skill >= 0 else 'more'} error, t = {t:.1f}).{worse} "
+                                 f"Argue any growth story against that baseline, not from it."})
         changes.append("Report the no-change case beside every DCF, with this study's error rates attached.")
     return {"practice": practice, "valuation_model": changes}
