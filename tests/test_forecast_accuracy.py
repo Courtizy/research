@@ -115,3 +115,15 @@ def test_study_is_deterministic():
     a = study.run(_random_panels(), engine="t", as_of="x", universe_size=30)
     b = study.run(_random_panels(), engine="t", as_of="x", universe_size=30)
     assert a == b
+
+
+def test_calibration_table_is_monotone_and_scaled():
+    from research.forecast_accuracy import calibration
+    assert calibration.revenue_vol([100, 110, 121, 133.1]) == pytest.approx(0)
+    assert calibration.revenue_vol([100]) == calibration.DEFAULT_VOL
+    errs = calibration.scaled_errors(_random_panels())
+    assert all(errs[h] for h in (1, 3, 5))
+    t = calibration.table(errs, center="model", source="test", as_of="x")
+    for q in t["quantiles"].values():
+        assert q == sorted(q) and len(q) == len(t["p"])
+    assert 0.05 in t["p"] and 0.95 in t["p"] and 0.025 in t["p"]
