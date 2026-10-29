@@ -1,0 +1,37 @@
+project:
+  type: default
+  output-dir: ../site/notebooks
+  resources: ["*.ipynb"]
+
+execute:
+  freeze: false
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: left
+    toc-title: Contents
+    toc-depth: 2
+    number-sections: true
+    code-fold: true
+    code-summary: "Show code"
+    code-tools:
+      source: false
+      toggle: true
+      caption: "Code"
+    code-copy: true
+    highlight-style: github
+    embed-resources: false
+    page-layout: article
+    css: notebook.css
+    include-in-header: _partials/head.html
+    include-before-body: _partials/header.html
+    include-after-body: _partials/footer.html
+    other-links:
+      - text: Download notebook (.ipynb)
+        href: forecast-accuracy.ipynb
+      - text: One-page memo
+        href: ../forecast-accuracy/memo.html
+      - text: Code on GitHub
+        href: https://github.com/Courtizy/research

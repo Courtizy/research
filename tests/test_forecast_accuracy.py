@@ -66,11 +66,21 @@ def test_actuals_are_first_reported_not_restated():
     assert o["actual"][1] == pytest.approx(GROWING[2014])
 
 
-def test_engine_failure_on_bad_filed_data_is_counted_not_fatal():
-    # a negative revenue fact (bad tagging) makes the engine's CAGR complex
+def test_engine_failure_on_bad_filed_data_is_counted_not_fatal(monkeypatch):
+    # engines before 0.7.1 crashed on a negative revenue fact (the CAGR went complex); simulate that
+    # crash on one origin so the test holds whatever engine is pinned
+    from research.forecast_accuracy import panel
+    real = panel.build_detail
+
+    def flaky(canonical, as_of):
+        if as_of.startswith("2014"):
+            raise TypeError("'<' not supported between instances of 'complex' and 'int'")
+        return real(canonical, as_of)
+
+    monkeypatch.setattr(panel, "build_detail", flaky)
     raw = company(dict(zip(range(2010, 2017), [100, 110, 120, -5, 130, 140, 150])), cik="0000000007", name="Bad")
     p = company_panel(raw)
-    assert p["engine_errors"] >= 1 and all(r["r0"] > 0 for r in p["origins"])
+    assert p["engine_errors"] == 1 and all(r["r0"] > 0 for r in p["origins"])
 
 
 def test_clustered_se_one_cluster_per_obs_matches_plain_se():

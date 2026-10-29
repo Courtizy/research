@@ -1,5 +1,6 @@
 # Deploys site/ to GitHub Pages. Settings > Pages > Source must be "GitHub Actions".
-# Results are the committed site/data/*.json; this workflow tests and publishes, it doesn't re-run studies.
+# Results are the committed site/data/*.json; this workflow tests, renders the notebooks over them
+# and publishes. It doesn't re-run studies.
 name: Pages
 
 on:
@@ -28,9 +29,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: scripts/setup_engine.sh
-      - run: pip install -e ".[dev]"
+      - run: pip install -e ".[dev,notebooks]"
       - run: pytest -q
       - run: python scripts/export_site.py
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.40
+      - name: Render the study notebooks (they read the committed results, not live SEC data)
+        run: quarto render notebooks --execute
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -20,7 +20,8 @@ The studies run on the **Valuation Model's tested engine** ([Courtizy/valuation]
 | `src/research/<study>/` | The study: pure functions, no network or file I/O |
 | `scripts/run_<study>.py` | Fetches public data (cached in `data/`, gitignored), runs the study, writes `site/data/<study>.json` |
 | `scripts/export_site.py` | Copies `brand/` into the site |
-| `site/` | Static GitHub Pages site. Pages display the JSON only; no numbers are typed by hand |
+| `notebooks/<study>.ipynb` | The write-up: a Jupyter notebook that reads `site/data/<study>.json` and draws every table and chart from it. Quarto renders it to `site/notebooks/` with the code folded |
+| `site/` | Static GitHub Pages site: the study index, the rendered notebooks, one-page memos. No numbers are typed by hand |
 | `tests/` | Offline tests on synthetic companies with known answers |
 
 ```bash
@@ -30,6 +31,8 @@ pytest -q
 export SEC_USER_AGENT="Your Name you@example.com"        # the SEC requires contact details
 python scripts/run_forecast_accuracy.py                  # about 1–2 hours for the full universe; resumes if stopped
 python scripts/export_site.py
+pip install -e ".[notebooks]"                            # plus Quarto 1.6 (quarto.org)
+quarto render notebooks --execute                        # site/notebooks/<study>.html
 python -m http.server -d site 8000
 ```
 
