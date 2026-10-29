@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-app="valuation">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forecast Accuracy Memo · Research &amp; Analysis · Jason C. Courtoy</title>
+  <meta name="description" content="How accurate are mechanical revenue forecasts built from SEC filings, and are the Valuation Model's ranges honest?">
+  <link rel="icon" type="image/svg+xml" href="../brand/icons/valuation.svg">
+  <link rel="stylesheet" href="../brand/css/brand.css">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="hub-bar"><div class="hub-bar__inner">
+    <a href="https://courtizy.github.io/">← Decision Models</a><span>Jason C. Courtoy</span>
+  </div></div>
+  <header class="brand-header">
+    <div class="brand-header__inner">
+      <div class="brand-tile" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 48l14-14 10 8 20-24"/><path d="M44 18h10v10"/></svg>
+      </div>
+      <div class="brand-header__text">
+        <h1 class="brand-header__name">Forecast Accuracy</h1>
+        <p class="brand-header__question">How far should you trust the first five years of a DCF?</p>
+      </div>
+      <span class="app-status"><span class="app-status__dot" aria-hidden="true"></span>In development</span>
+    </div>
+  </header>
+    <main class="wrap memo">
+    <p class="eyebrow">Research &amp; Analysis · Study 01 · Memo</p>
+    <p class="memo__to small" id="memo-meta"></p>
+    <h2>Bottom line</h2>
+    <p class="lead" id="m-lead">Loading results…</p>
+    <p id="m-sub"></p>
+    <h2>What was tested</h2>
+    <p id="m-sample"></p>
+    <p>Four ways of forecasting revenue one to five years ahead were scored against what companies later reported: no change, each company's own three-year growth, its sector's growth, and the Valuation Model's fading-growth forecast with its P10–P90 range. Each forecast used only filings available on the day it was made.</p>
+    <h2>Findings</h2>
+    <ol id="m-findings"></ol>
+    <h2>What this means in practice</h2>
+    <ul id="m-practice"></ul>
+    <h2>What changes in the Valuation Model</h2>
+    <p class="small">Proposed, not yet made. Each will be re-tested against this study before it ships.</p>
+    <ul id="m-changes"></ul>
+    <h2>Limits</h2>
+    <ul>
+      <li>Mechanical forecasts from filings only. Analyst and management forecasts aren't scored.</li>
+      <li>Associations, not causes.</li>
+      <li>Large US filers only (revenue of $1B or more in a cohort year), finance excluded.</li>
+    </ul>
+    <p class="memo__links"><a class="button" href="./#results">Full results</a> <a class="button" href="./#method">Method</a></p>
+  </main>
+  <footer class="brand-footer">
+    <p>Personal project · public or synthetic data only · not investment advice · not endorsed by DoD or the U.S. Air Force</p>
+    <p class="small">Built from SEC filings. Analysis of method, not a recommendation on any company.</p>
+  </footer>
+  <script type="module" src="../assets/memo.js"></script>
+</body>
+</html>

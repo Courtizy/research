@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" data-app="valuation">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forecast Accuracy · Research &amp; Analysis · Jason C. Courtoy</title>
+  <meta name="description" content="How accurate are mechanical revenue forecasts built from SEC filings, and are the Valuation Model's ranges honest?">
+  <link rel="icon" type="image/svg+xml" href="../brand/icons/valuation.svg">
+  <link rel="stylesheet" href="../brand/css/brand.css">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="hub-bar"><div class="hub-bar__inner">
+    <a href="https://courtizy.github.io/">← Decision Models</a><span>Jason C. Courtoy</span>
+  </div></div>
+  <header class="brand-header">
+    <div class="brand-header__inner">
+      <div class="brand-tile" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 48l14-14 10 8 20-24"/><path d="M44 18h10v10"/></svg>
+      </div>
+      <div class="brand-header__text">
+        <h1 class="brand-header__name">Forecast Accuracy</h1>
+        <p class="brand-header__question">How far should you trust the first five years of a DCF?</p>
+      </div>
+      <span class="app-status"><span class="app-status__dot" aria-hidden="true"></span>In development</span>
+    </div>
+  </header>
+  <div class="tabbar">
+    <nav class="tabs" role="tablist" aria-label="Pages">
+      <button class="tab" role="tab" data-tab="overview" aria-selected="true">Overview</button>
+      <button class="tab" role="tab" data-tab="results" aria-selected="false">Results</button>
+      <button class="tab" role="tab" data-tab="method" aria-selected="false">Method</button>
+    </nav>
+  </div>
+
+  <main class="wrap">
+    <!-- Overview: the answer first -->
+    <section class="panel" data-panel="overview">
+      <div class="prose">
+        <p class="eyebrow">Research &amp; Analysis · Study 01</p>
+        <p class="lead" id="headline">Loading the results…</p>
+        <p id="subhead" class="muted"></p>
+        <div class="buttons">
+          <a class="button button--primary" href="memo.html">Read the one-page memo</a>
+          <a class="button" href="#results" data-goto="results">See results</a>
+          <a class="button" href="#method" data-goto="method">How it works</a>
+        </div>
+      </div>
+      <div class="kpis" id="kpis"></div>
+      <div class="brand-card prose">
+        <h2>The question</h2>
+        <p>A DCF's first five years usually start from the company's own history: recent growth, fading toward the economy. How accurate is that, and does the model's range around it (Bear to Bull, P10 to P90) really contain the outcome four times in five?</p>
+        <h3>Hypotheses, set before looking</h3>
+        <ol>
+          <li><strong>H1.</strong> Extrapolating past growth over-forecasts revenue for the fastest growers, because growth reverts to the mean.</li>
+          <li><strong>H2.</strong> For operating margin, holding last year's margin is at least as accurate as averaging recent years.</li>
+          <li><strong>H3.</strong> The model's P10–P90 revenue range covers less than 80% of outcomes, and the shortfall grows with the horizon.</li>
+        </ol>
+        <h3>Findings</h3>
+        <ul id="findings"></ul>
+      </div>
+      <div class="brand-card prose">
+        <h2>What it can't tell you</h2>
+        <ul>
+          <li>It tests mechanical forecasts built only from filings. Analysts and management know more; their forecasts aren't scored here.</li>
+          <li>Associations, not causes. A sector or growth group that forecasts badly isn't shown to be badly forecast <em>because</em> of the sector or the growth.</li>
+          <li>Large US filers only (revenue of $1B or more in a cohort year), so small and private companies may behave differently.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Results: charts and the statistics behind them -->
+    <section class="panel" data-panel="results" hidden>
+      <div class="grid-2">
+        <div class="brand-card"><h2>Error grows with the horizon</h2><div class="chart" id="ch-error"></div>
+          <p class="chart-note">Median absolute error of the revenue forecast, as a log ratio (0.10 ≈ 10% off).</p></div>
+        <div class="brand-card"><h2>Is the range honest?</h2><div class="chart" id="ch-coverage"></div>
+          <p class="chart-note">Share of outcomes inside the model's P10–P90 range. The dashed line is the 80% it promises.</p></div>
+        <div class="brand-card"><h2>Who gets over-forecast?</h2><div class="chart" id="ch-bias"></div>
+          <p class="chart-note">Mean signed error three years out, by prior three-year growth (deciles). Above zero means the forecast was too high. Bars show ±2 standard errors, clustered by company.</p></div>
+        <div class="brand-card"><h2>Skill by sector</h2><div class="chart" id="ch-sector"></div>
+          <p class="chart-note">Improvement over the no-change forecast three years out (0 = no better, 0.2 = 20% less error).</p></div>
+      </div>
+      <div class="brand-card"><h2>Accuracy by method and horizon</h2><div class="table-wrap"><table id="tb-accuracy"></table></div>
+        <p class="chart-note">Bias is the mean log error (positive = too high). Skill compares mean absolute error with the no-change forecast on the same observations; the t statistic tests that difference with company-clustered errors.</p></div>
+      <div class="grid-2">
+        <div class="brand-card"><h2>Range coverage</h2><div class="table-wrap"><table id="tb-coverage"></table></div></div>
+        <div class="brand-card"><h2>Operating margin (H2)</h2><div class="table-wrap"><table id="tb-margin"></table></div></div>
+      </div>
+      <div class="brand-card"><h2>Robustness</h2><div class="table-wrap"><table id="tb-robust"></table></div>
+        <p class="chart-note">Model skill and range coverage three years out, with large one-year revenue moves (over 50%, usually acquisitions or spin-offs) removed, and split by whether the target year was before 2020.</p></div>
+    </section>
+
+    <!-- Method -->
+    <section class="panel" data-panel="method" hidden>
+      <div class="brand-card prose">
+        <h2>Data</h2>
+        <p id="sample"></p>
+        <ul>
+          <li><strong>Source:</strong> SEC EDGAR XBRL company facts (US government data), fetched with a contact User-Agent within the SEC's fair-access limits.</li>
+          <li><strong>Universe:</strong> the largest filers by revenue (at least $1B) in calendar 2011, 2015 and 2019, taken together. Firms that were later acquired or stopped filing stay in, so the sample isn't only survivors.</li>
+          <li><strong>Excluded:</strong> finance (SIC 60–67), where revenue isn't a comparable measure.</li>
+        </ul>
+        <h2>Point in time, both ways</h2>
+        <p>Each forecast origin is the day a 10-K was filed. The Valuation Model's own normalizer runs as of that day, so only facts filed by then count. Each actual is that year's revenue as first reported in its own 10-K, so restatements made later never leak into either side. A test re-runs every origin with the later filings deleted and requires identical forecasts.</p>
+        <h2>The forecasts</h2>
+        <table>
+          <tr><th>Method</th><th style="text-align:left">Revenue h years out</th></tr>
+          <tr><td>No change</td><td style="text-align:left">Last year's revenue. The baseline every method has to beat.</td></tr>
+          <tr><td>Own history</td><td style="text-align:left">Last year's revenue grown at the company's three-year growth rate.</td></tr>
+          <tr><td>Sector</td><td style="text-align:left">Grown at the median three-year growth of other companies in the same SIC division that year.</td></tr>
+          <tr><td>Model</td><td style="text-align:left">The Valuation Model's default DCF case: growth from the company's history (capped −5% to 20%), fading to 2.5% over ten years. Its P10–P90 range comes from the model's simulation (near-term growth ±3 points, triangular), computed exactly.</td></tr>
+        </table>
+        <h2>Scoring</h2>
+        <ul>
+          <li>Error = ln(forecast ÷ actual). Symmetric and scale-free.</li>
+          <li>Bias and skill use errors winsorized at the 1st and 99th percentiles; medians use raw errors.</li>
+          <li>Standard errors are clustered by company, since one company's overlapping origins share its surprises.</li>
+          <li>Companies need at least three years of history at the origin to be scored.</li>
+        </ul>
+        <h2>Validation</h2>
+        <ul class="checklist" id="validation">
+          <li>No look-ahead: forecasts identical with later filings removed (test)</li>
+          <li>Actuals as first reported, not restated (test)</li>
+          <li>The range matches a 40,000-run seeded simulation of the model's draw (test)</li>
+          <li>The fade matches the engine's own projection code (test)</li>
+          <li>Deterministic: the same inputs give the same results (test)</li>
+        </ul>
+        <h2>Reproduce it</h2>
+        <pre>scripts/setup_engine.sh
+pip install -e ".[dev]" &amp;&amp; pytest -q
+export SEC_USER_AGENT="Your Name you@example.com"
+python scripts/run_forecast_accuracy.py</pre>
+        <p id="engine" class="muted"></p>
+        <p><a href="https://github.com/Courtizy/research">Code on GitHub</a> · <a href="../data/forecast_accuracy.json">Results (JSON)</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p>Personal project · public or synthetic data only · not investment advice · not endorsed by DoD or the U.S. Air Force</p>
+    <p class="small">Built from SEC filings. Analysis of method, not a recommendation on any company. <span id="generated"></span></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.35.3/plotly.min.js"></script>
+  <script type="module" src="../assets/study.js"></script>
+</body>
+</html>

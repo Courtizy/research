@@ -1,0 +1,31 @@
+# Re-runs a study from the SEC on demand and uploads the result for review.
+# Needs the repository secret SEC_USER_AGENT ("Your Name you@example.com").
+# To publish, download the artifact, commit site/data/<study>.json, and push.
+name: Study
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Only the first N companies (blank = all)"
+        required: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: scripts/setup_engine.sh
+      - run: pip install -e ".[dev]"
+      - name: Run the forecast-accuracy study
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python scripts/run_forecast_accuracy.py ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forecast_accuracy
+          path: site/data/forecast_accuracy.json
