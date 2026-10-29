@@ -1,0 +1,25 @@
+/* Quarto notebook in the Decision Models frame: brand tokens over Bootstrap's defaults */
+body { background: var(--page); color: var(--ink); font-family: var(--font-sans); }
+h1, h2, h3, h4, .title { font-family: var(--font-sans); color: var(--ink); font-weight: 700; }
+a { color: var(--accent-valuation); }
+p, li { line-height: 1.6; }
+#quarto-content { padding-top: 24px; }
+.quarto-title-block .title { font-size: 2rem; }
+.quarto-title .subtitle, .description { color: var(--ink-secondary); }
+#TOC, .sidebar nav[role="doc-toc"] { font-size: 0.875rem; }
+.sidebar nav[role="doc-toc"] a { color: var(--ink-secondary); }
+.sidebar nav[role="doc-toc"] a.active { color: var(--ink); border-left-color: var(--brand-fill) !important; }
+code, pre, .sourceCode { font-family: var(--font-mono); font-size: 0.85rem; }
+div.sourceCode, pre.sourceCode { background: var(--panel) !important; border: 1px solid var(--line); border-radius: 8px; }
+details.code-fold summary { color: var(--ink-secondary); font-size: 0.85rem; }
+.cell-output-display table, table { font-variant-numeric: tabular-nums; color: var(--ink); }
+table th { color: var(--ink-secondary); font-weight: 600; border-bottom: 1px solid var(--line); }
+table td { border-color: var(--line) !important; }
+.table { --bs-table-bg: transparent; --bs-table-color: var(--ink); }
+.callout { background: var(--panel); border-color: var(--line); color: var(--ink); }
+.nb-back { margin-left: 12px; color: var(--ink-secondary); font-size: 0.9rem; }
+.quarto-other-links-text-target, .quarto-alternate-formats a { color: var(--ink-secondary); }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 16px 0; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--brand-fill); border-radius: 8px; padding: 12px 14px; }
+.kpi b { display: block; font-family: var(--font-mono); font-size: 1.5rem; }
+.kpi span { color: var(--ink-secondary); font-size: 0.85rem; }

@@ -13,3 +13,6 @@ build/
 .pytest_cache/
 .venv/
 /.engine/
+# rendered by quarto in the Pages workflow
+/site/notebooks/
+/notebooks/.quarto/
