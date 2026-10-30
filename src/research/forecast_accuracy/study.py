@@ -212,7 +212,7 @@ def memo(res: dict) -> dict:
     if mt is not None and mt > -2:
         practice.append({"title": "Beat no change first.",
                          "text": f"Three years out, fading the company's own growth was not measurably better than assuming "
-                                 f"revenue stays flat ({_vs(m3)}). Argue any growth story against "
+                                 f"revenue stays flat: {_vs(m3)}. Argue any growth story against "
                                  f"that baseline."})
         model.append("Every DCF shows the value with revenue held flat beside it.")
     return {"practice": practice, "valuation_model": model}
