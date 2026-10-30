@@ -1,0 +1,9 @@
+---
+title: "Forecast accuracy"
+format:
+  html:
+    include-in-header:
+      text: '<meta http-equiv="refresh" content="0; url=forecast-accuracy.html"><link rel="canonical" href="forecast-accuracy.html">'
+---
+
+This page is now part of [Study 01: How far should you trust the first five years of a DCF?](forecast-accuracy.html)

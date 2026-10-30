@@ -6,16 +6,15 @@ forecast (ln actual / forecast) at each horizon, divided by a company scale so s
 get narrow ranges and volatile ones wide ranges. Scale = the standard deviation of the company's
 yearly log revenue growth over its history, plus SCALE_FLOOR.
 
-Out of sample (each base year scored with quantiles from errors already known by then), a range
-built for 90% held 88-93% and one built for 95% held 94-97% across horizons 1-5.
+How often the ranges hold out of sample, scored point in time (each forecast against quantiles of the
+errors whose actuals had been filed by its own filing date), is in the table's `tested` field and in Study 1 (ranges.py).
 """
 from __future__ import annotations
 
 import math
-from statistics import pstdev
-
+from bisect import insort
 from collections import defaultdict
-from statistics import median
+from statistics import median, pstdev
 
 from .methods import HORIZONS
 from .metrics import division
@@ -27,8 +26,8 @@ GRID = [round(0.005 * i, 3) for i in range(1, 200)]   # 0.5% steps, so P2.5, P5,
 
 def add_blend(panels: list[dict]) -> None:
     """The blended forecast: the geometric mean of no change, the model's fade and the sector's growth
-    (the model when there's no sector forecast). Out of sample it beat no change by 7% three years out
-    and 12% five years out, where the fade alone did not. Panels must already carry sector forecasts."""
+    (the model when there's no sector forecast). Study 1 scores it against no change, the fade and the other forecasts.
+    Panels must already carry sector forecasts (study.add_sector_forecasts)."""
     for p in panels:
         for o in p["origins"]:
             fc, r0 = o["revenue"], o["r0"]
@@ -62,9 +61,10 @@ def scale(history: list[float]) -> float:
     return revenue_vol(history) + SCALE_FLOOR
 
 
-def scaled_errors(panels: list[dict], center: str = "model", *, with_years: bool = False) -> dict[int, list]:
+def scaled_errors(panels: list[dict], center: str = "model", *, with_dates: bool = False) -> dict[int, list]:
     """Per horizon: ln(actual / forecast) / scale for every scored origin (finance excluded);
-    with_years=True gives (base year, error) pairs for the out-of-sample check."""
+    with_dates=True gives rows {year, origin, known, z} for the out-of-sample check, where origin is the
+    forecast's filing date and known the filing date of the 10-K that reported the actual."""
     out: dict[int, list] = {h: [] for h in HORIZONS}
     for p in panels:
         if division(p.get("sic")) == "Finance":
@@ -77,7 +77,8 @@ def scaled_errors(panels: list[dict], center: str = "model", *, with_years: bool
                 a = o["actual"].get(h)
                 if a and a > 0 and f.get(h) and f[h] > 0:
                     e = math.log(a / f[h]) / s
-                    out[h].append((int(o["base_end"][:4]), e) if with_years else e)
+                    out[h].append({"year": int(o["base_end"][:4]), "origin": o["origin"],
+                                   "known": o["actual_origin"][h], "z": e} if with_dates else e)
     return out
 
 
@@ -88,29 +89,40 @@ def _q(sorted_v: list[float], p: float) -> float:
     return sorted_v[lo] + (sorted_v[hi] - sorted_v[lo]) * (i - lo)
 
 
-def tested_coverage(pairs: dict[int, list[tuple[int, float]]], levels=(0.8, 0.9, 0.95),
+def known_quantiles(rows: list[dict], tests: list[dict], levels=(0.8, 0.9, 0.95)) -> list[tuple[int, dict]]:
+    """For each test row: how many scaled errors were known by its origin date, and their central quantiles
+    at each level ({level: (lo, hi)}). An error is known once the 10-K reporting its actual has been filed
+    (row["known"] <= test["origin"]); a fiscal year having ended is not enough. One sweep in date order."""
+    pending = sorted(rows, key=lambda r: r["known"])
+    out: list[tuple[int, dict]] = [(0, {})] * len(tests)
+    cal: list[float] = []
+    j = 0
+    for i in sorted(range(len(tests)), key=lambda i: tests[i]["origin"]):
+        while j < len(pending) and pending[j]["known"] <= tests[i]["origin"]:
+            insort(cal, pending[j]["z"])
+            j += 1
+        if cal:
+            out[i] = (len(cal), {lvl: (_q(cal, (1 - lvl) / 2), _q(cal, 1 - (1 - lvl) / 2)) for lvl in levels})
+    return out
+
+
+def tested_coverage(rows: dict[int, list[dict]], levels=(0.8, 0.9, 0.95),
                     first_year: int = 2014, min_calibration: int = 200) -> dict:
-    """Out of sample: each base year Y is scored with quantiles of errors already known at Y
-    (base year + h <= Y), the way the model would have been calibrated on the day."""
-    out: dict[str, dict] = {}
-    for lvl in levels:
-        lo_p, hi_p = (1 - lvl) / 2, 1 - (1 - lvl) / 2
-        by_h = {}
-        for h, rows in pairs.items():
-            hits = n = 0
-            for y in sorted({y for y, _ in rows if y >= first_year}):
-                cal = sorted(e for yy, e in rows if yy + h <= y)
-                if len(cal) < min_calibration:
-                    continue
-                lo, hi = _q(cal, lo_p), _q(cal, hi_p)
-                test = [e for yy, e in rows if yy == y]
-                hits += sum(lo <= e <= hi for e in test)
-                n += len(test)
-            if n:
-                by_h[str(h)] = {"coverage": round(hits / n, 4), "n": n}
-        out[f"{round(lvl * 100)}"] = by_h
-    return {"method": f"expanding window: base years {first_year} on, each scored with quantiles from errors known by then",
-            "levels": out}
+    """Out of sample and point in time: each forecast from base year `first_year` on is scored with quantiles
+    of the errors known on its filing date (known_quantiles), the way the model would have been calibrated
+    on the day. rows: scaled_errors(..., with_dates=True)."""
+    hits = {lvl: {} for lvl in levels}
+    for h, rs in rows.items():
+        tests = [r for r in rs if r["year"] >= first_year]
+        scored = [(r, q) for r, (n, q) in zip(tests, known_quantiles(rs, tests, levels)) if n >= min_calibration]
+        if not scored:
+            continue
+        for lvl in levels:
+            k = sum(q[lvl][0] <= r["z"] <= q[lvl][1] for r, q in scored)
+            hits[lvl][str(h)] = {"coverage": round(k / len(scored), 4), "n": len(scored)}
+    return {"method": f"expanding window: forecasts from base year {first_year} on, each scored with quantiles "
+                      f"from errors whose actuals were filed by its own filing date",
+            "levels": {f"{round(lvl * 100)}": by_h for lvl, by_h in hits.items()}}
 
 
 def table(errors: dict[int, list[float]], *, center: str, source: str, as_of: str, tested: dict | None = None) -> dict:

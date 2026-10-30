@@ -1,11 +1,14 @@
 """Study 1 on synthetic companies: known answers, no network."""
+import copy
 import math
 import random
+import statistics
 
 import pytest
 
 from synthetic import company
 from research.forecast_accuracy import methods, metrics, study, universe
+from research.forecast_accuracy.metrics import division
 from research.forecast_accuracy.panel import company_panel, origins
 
 from valuation._core.projection import project
@@ -110,15 +113,16 @@ def _random_panels(n=30, seed=3):
 
 
 def test_study_runs_end_to_end_and_excludes_finance():
-    res = study.run(_random_panels(), engine="test", as_of="2026-10-29", universe_size=30)
+    res = study.run(_random_panels(), engine="test", as_of="2026-10-29", universe_size=30, min_calibration=50)
     s = res["sample"]
     assert s["excluded_finance"] == 10 and s["companies_scored"] == 20
-    assert {a["method"] for a in res["accuracy"]} == {"naive", "hist3", "sector", "model"}
+    assert {a["method"] for a in res["accuracy"]} == {"naive", "hist3", "sector", "model", "blend"}
     naive = [a for a in res["accuracy"] if a["method"] == "naive"]
     assert all(a["skill_vs_naive"] == pytest.approx(0) for a in naive)
     assert all(0 <= c["coverage"] <= 1 for c in res["coverage"])
     assert res["robustness"]["no_large_moves"]["n"] <= s["observations"]
     assert set(res["memo"]) == {"practice", "valuation_model"}
+    assert any("80% range" in k["label"] for k in res["headline"]["kpis"])
 
 
 def test_study_is_deterministic():
@@ -155,38 +159,108 @@ def test_blend_is_the_geometric_mean_of_flat_model_and_sector():
 def test_tested_coverage_is_near_nominal_for_stable_errors():
     from research.forecast_accuracy import calibration
     rng = random.Random(5)
-    pairs = {h: [(y, rng.gauss(0, 1)) for y in range(2005, 2025) for _ in range(60)] for h in (1, 3)}
-    t = calibration.tested_coverage(pairs, min_calibration=100)
+    rows = {h: [{"year": y, "origin": f"{y + 1}-03-01", "known": f"{y + 1 + h}-03-01", "z": rng.gauss(0, 1)}
+                for y in range(2005, 2025) for _ in range(60)] for h in (1, 3)}
+    t = calibration.tested_coverage(rows, min_calibration=100)
     for lvl, nominal in (("80", 0.8), ("90", 0.9)):
         for h in ("1", "3"):
             assert abs(t["levels"][lvl][h]["coverage"] - nominal) < 0.04
 
 
-def test_rescore_scores_before_and_after_on_the_same_observations():
-    from research.forecast_accuracy import rescore
-    res = rescore.run(_random_panels(), engine="t", as_of="x", universe_size=30, min_calibration=50)
-    assert {a["method"] for a in res["accuracy"]} == {"naive", "model", "blend"}
-    for c in res["coverage"]:
-        assert 0 <= c["before"]["share"] <= 1 and c["before"]["n"] == c["n"]
-        assert set(c["after"]) == {"80", "90", "95"}
-        assert c["after"]["80"]["share"] <= c["after"]["90"]["share"] <= c["after"]["95"]["share"]
-        assert c["after"]["80"]["above"] < c["after"]["95"]["above"]
-    assert [g["group"] for g in res["coverage_by_volatility"]] == list(rescore.VOL_GROUPS)
-    assert res["headline"]["kpis"]
+def test_ranges_are_scored_on_the_same_observations():
+    res = study.run(_random_panels(), engine="t", as_of="x", universe_size=30, min_calibration=50)
+    for c in res["ranges"]:
+        assert 0 <= c["simulated"]["share"] <= 1 and c["simulated"]["n"] == c["n"]
+        assert set(c["calibrated"]) == {"80", "90", "95"}
+        cal = c["calibrated"]
+        assert cal["80"]["share"] <= cal["90"]["share"] <= cal["95"]["share"]
+        assert cal["80"]["above"] < cal["95"]["above"]
+    from research.forecast_accuracy import ranges
+    assert [g["group"] for g in res["ranges_by_volatility"]] == list(ranges.VOL_GROUPS)
+    assert res["sample"]["range_test"]["observations"] > 0
+
+def _staggered_panels(n=30, seed=3):
+    """Like _random_panels, but companies file their 10-Ks on different days, so fiscal years that end
+    together become public weeks or months apart (the case a calendar-year cutoff gets wrong)."""
+    rng = random.Random(seed)
+    panels = []
+    for i in range(n):
+        g, r, rev = rng.uniform(0.0, 0.12), 100.0, {}
+        for y in range(2008, 2024):
+            rev[y] = r
+            r *= 1 + g + rng.gauss(0, 0.06)
+        panels.append(company_panel(company(rev, cik=f"{i:010d}", sic=["3720", "7372"][i % 2],
+                                            filed_month_day=["02-10", "03-15", "05-20"][i % 3])))
+    return panels
+
+
+def _wreck_after(panels, cutoff):
+    """The same panels with every fact first filed after `cutoff` replaced by nonsense: peers' growth from
+    later 10-Ks, and actuals reported by later 10-Ks."""
+    out = copy.deepcopy(panels)
+    for p in out:
+        for o in p["origins"]:
+            if o["origin"] > cutoff:
+                o["g3"] = 5.0
+            o["actual"] = {h: a * 10 if o["actual_origin"][h] > cutoff else a for h, a in o["actual"].items()}
+    return out
+
+
+def test_sector_forecast_ignores_peers_filed_later():
+    """A peer's later 10-K can't change an earlier sector forecast (point in time across companies)."""
+    panels = _staggered_panels()
+    study.add_sector_forecasts(panels)
+    for cutoff in ("2014-02-10", "2016-03-15", "2019-02-28"):
+        wrecked = _wreck_after(panels, cutoff)
+        study.add_sector_forecasts(wrecked)
+        for p, w in zip(panels, wrecked):
+            for o, ow in zip(p["origins"], w["origins"]):
+                if o["origin"] <= cutoff:
+                    assert ow["revenue"].get("sector") == o["revenue"].get("sector"), (p["cik"], o["origin"])
+    assert any(o["revenue"].get("sector") for p in panels for o in p["origins"])
+
+
+def test_sector_forecast_waits_for_a_peer_filing_on_the_same_fiscal_year():
+    """February filers don't see a March filer's year until it is filed, even though both years ended in December."""
+    panels = _staggered_panels()
+    feb = next(p for p in panels if p["origins"][0]["origin"].endswith("02-10"))
+    o = next(o for o in feb["origins"] if o["base_end"] == "2015-12-31")
+    peers = [x for p in panels if p["cik"] != feb["cik"] and division(p["sic"]) == division(feb["sic"])
+             for x in p["origins"] if x["origin"] <= o["origin"] and x["g3"] is not None]
+    assert all(x["base_end"] <= "2015-12-31" for x in peers)
+    latest = {}
+    for p in panels:
+        if p["cik"] != feb["cik"] and division(p["sic"]) == division(feb["sic"]):
+            got = [x for x in p["origins"] if x["origin"] <= o["origin"] and x["g3"] is not None]
+            if got:
+                latest[p["cik"]] = got[-1]["g3"]
+    study.add_sector_forecasts(panels)
+    want = methods.sector_forecasts(o["r0"], statistics.median(latest.values()))
+    assert o["revenue"]["sector"] == pytest.approx(want)
 
 
 def test_range_hits_never_see_the_future():
-    """A base year's range is built only from errors known by then: wrecking later actuals leaves it unchanged."""
-    from research.forecast_accuracy import calibration, rescore
-    panels = _random_panels()
-    study.add_sector_forecasts(panels)
-    calibration.add_blend(panels)
-    before = [r for r in rescore.range_hits(panels, min_calibration=50) if r["year"] + r["h"] < 2018]
-    for p in panels:
-        for o in p["origins"]:
-            o["actual"] = {h: (a * 10 if int(o["base_end"][:4]) + h >= 2018 else a) for h, a in o["actual"].items()}
-    after = [r for r in rescore.range_hits(panels, min_calibration=50) if r["year"] + r["h"] < 2018]
-    assert before and before == after
+    """A forecast's range is built only from errors whose actuals were filed by its own filing date:
+    wrecking every actual filed later leaves the range (its width and calibration count) unchanged."""
+    from research.forecast_accuracy import calibration, ranges
+    panels = _staggered_panels()
+    for cutoff in ("2016-02-10", "2017-03-15", "2019-05-20"):
+        runs = []
+        for ps in (panels, _wreck_after(panels, cutoff)):
+            ps = copy.deepcopy(ps)
+            study.add_sector_forecasts(ps)
+            calibration.add_blend(ps)
+            runs.append([(r["cik"], r["h"], r["origin"], r["n_calibration"], r["reach"])
+                         for r in ranges.range_hits(ps, min_calibration=50) if r["origin"] <= cutoff])
+        assert runs[0] and runs[0] == runs[1]
+
+
+def test_known_quantiles_wait_for_the_filing_not_the_fiscal_year_end():
+    from research.forecast_accuracy import calibration
+    rows = [{"known": "2016-02-10", "z": 0.0}, {"known": "2016-05-20", "z": 1.0}]
+    tests = [{"origin": "2016-03-15"}, {"origin": "2016-05-20"}, {"origin": "2016-01-01"}]
+    (n1, _), (n2, _), (n0, q0) = calibration.known_quantiles(rows, tests)
+    assert (n0, n1, n2) == (0, 1, 2) and q0 == {}
 
 
 def test_blend_matches_the_engine():

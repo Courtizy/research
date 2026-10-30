@@ -14,5 +14,5 @@ fetch("../data/forecast_accuracy.json")
       `(including firms that later disappeared).`;
     $("m-findings").innerHTML = li(d.headline.findings.map((f) => `<strong>${f.label}.</strong> ${f.text}`));
     $("m-practice").innerHTML = li(d.memo.practice.map((p) => `<strong>${p.title}</strong> ${p.text}`)) || "<li>No practice point cleared the evidence bar.</li>";
-    $("m-changes").innerHTML = li(d.memo.valuation_model) || "<li>None indicated.</li>";
+    $("m-changes").innerHTML = li(d.memo.valuation_model) || "<li>No change indicated.</li>";
   }, () => { $("m-lead").textContent = "Results aren't published yet."; });

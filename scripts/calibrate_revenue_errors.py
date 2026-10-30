@@ -41,7 +41,7 @@ def main(argv=None) -> int:
     study.add_sector_forecasts(panels)
     calibration.add_blend(panels)
     errors = calibration.scaled_errors(panels, args.center)
-    tested = calibration.tested_coverage(calibration.scaled_errors(panels, args.center, with_years=True))
+    tested = calibration.tested_coverage(calibration.scaled_errors(panels, args.center, with_dates=True))
     doc = calibration.table(errors, center=args.center, as_of=date.today().isoformat(), tested=tested,
                             source=f"Courtizy/research Study 1 panels: {len(panels)} companies, SEC filings")
     args.out.parent.mkdir(parents=True, exist_ok=True)
