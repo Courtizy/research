@@ -36,21 +36,21 @@
     <p id="m-sub"></p>
     <h2>What was tested</h2>
     <p id="m-sample"></p>
-    <p>Four ways of forecasting revenue one to five years ahead were scored against what companies later reported: no change, each company's own three-year growth, its sector's growth, and the Valuation Model's fading-growth forecast with its P10–P90 range. Each forecast used only filings available on the day it was made.</p>
+    <p>Five ways of forecasting revenue one to five years ahead were scored against what companies later reported: no change, each company's own three-year growth, its sector's growth, growth fading toward the economy, and a blend of no change, the fade and the sector. Two ways of drawing a range around a forecast were scored too: a ±3-point wobble in growth, and quantiles of past misses scaled to the company's volatility. Each forecast, sector median and range used only filings public on the day it was made.</p>
     <h2>Findings</h2>
     <ol id="m-findings"></ol>
     <h2>What this means in practice</h2>
     <ul id="m-practice"></ul>
-    <h2>What changed after this study?</h2>
-    <p>This study proposed the changes below, and each has since shipped in the Valuation Model: calibrated ranges in 0.8.0, a blended base case in 0.9.0, and the no-change yardstick beside every DCF in 0.10.0. <a href="../forecast-accuracy-rescore/memo.html">Study 01b</a> scores them again on the same filings, point in time.</p>
+    <h2>In the Valuation Model</h2>
     <ul id="m-changes"></ul>
     <h2>Limits</h2>
     <ul>
       <li>Mechanical forecasts from filings only. Analyst and management forecasts aren't scored.</li>
       <li>Associations, not causes.</li>
+      <li>The blend has no fitted weights, but its design was chosen with this sample in view. The ranges are scored out of sample; forecasts made after this study are the real test of the blend.</li>
       <li>Large US filers only (revenue of $1B or more in a cohort year), finance excluded.</li>
     </ul>
-    <p class="memo__links"><a class="button" href="../notebooks/forecast-accuracy.html">Read the notebook</a> <a class="button" href="../forecast-accuracy-rescore/memo.html">Study 01b memo</a></p>
+    <p class="memo__links"><a class="button" href="../notebooks/forecast-accuracy.html">Read the notebook</a></p>
   </main>
   <footer class="brand-footer">
     <p>Personal project · public or synthetic data only · not investment advice · not endorsed by DoD or the U.S. Air Force</p>

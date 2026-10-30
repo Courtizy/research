@@ -7,7 +7,7 @@ get narrow ranges and volatile ones wide ranges. Scale = the standard deviation 
 yearly log revenue growth over its history, plus SCALE_FLOOR.
 
 How often the ranges hold out of sample, scored point in time (each forecast against quantiles of the
-errors whose actuals had been filed by its own filing date), is in the table's `tested` field and Study 1b.
+errors whose actuals had been filed by its own filing date), is in the table's `tested` field and in Study 1 (ranges.py).
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ GRID = [round(0.005 * i, 3) for i in range(1, 200)]   # 0.5% steps, so P2.5, P5,
 
 def add_blend(panels: list[dict]) -> None:
     """The blended forecast: the geometric mean of no change, the model's fade and the sector's growth
-    (the model when there's no sector forecast). Study 1b scores it against no change and the fade.
+    (the model when there's no sector forecast). Study 1 scores it against no change, the fade and the other forecasts.
     Panels must already carry sector forecasts (study.add_sector_forecasts)."""
     for p in panels:
         for o in p["origins"]:

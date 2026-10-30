@@ -113,15 +113,16 @@ def _random_panels(n=30, seed=3):
 
 
 def test_study_runs_end_to_end_and_excludes_finance():
-    res = study.run(_random_panels(), engine="test", as_of="2026-10-29", universe_size=30)
+    res = study.run(_random_panels(), engine="test", as_of="2026-10-29", universe_size=30, min_calibration=50)
     s = res["sample"]
     assert s["excluded_finance"] == 10 and s["companies_scored"] == 20
-    assert {a["method"] for a in res["accuracy"]} == {"naive", "hist3", "sector", "model"}
+    assert {a["method"] for a in res["accuracy"]} == {"naive", "hist3", "sector", "model", "blend"}
     naive = [a for a in res["accuracy"] if a["method"] == "naive"]
     assert all(a["skill_vs_naive"] == pytest.approx(0) for a in naive)
     assert all(0 <= c["coverage"] <= 1 for c in res["coverage"])
     assert res["robustness"]["no_large_moves"]["n"] <= s["observations"]
     assert set(res["memo"]) == {"practice", "valuation_model"}
+    assert any("80% range" in k["label"] for k in res["headline"]["kpis"])
 
 
 def test_study_is_deterministic():
@@ -166,19 +167,17 @@ def test_tested_coverage_is_near_nominal_for_stable_errors():
             assert abs(t["levels"][lvl][h]["coverage"] - nominal) < 0.04
 
 
-def test_rescore_scores_before_and_after_on_the_same_observations():
-    from research.forecast_accuracy import rescore
-    res = rescore.run(_random_panels(), engine="t", as_of="x", universe_size=30, min_calibration=50)
-    assert {a["method"] for a in res["accuracy"]} == {"naive", "model", "blend"}
-    for c in res["coverage"]:
-        assert 0 <= c["before"]["share"] <= 1 and c["before"]["n"] == c["n"]
-        assert set(c["after"]) == {"80", "90", "95"}
-        assert c["after"]["80"]["share"] <= c["after"]["90"]["share"] <= c["after"]["95"]["share"]
-        assert c["after"]["80"]["above"] < c["after"]["95"]["above"]
-    assert [g["group"] for g in res["coverage_by_volatility"]] == list(rescore.VOL_GROUPS)
-    assert res["headline"]["kpis"]
-    assert set(res["memo"]) == {"findings", "practice"} and res["memo"]["findings"]
-
+def test_ranges_are_scored_on_the_same_observations():
+    res = study.run(_random_panels(), engine="t", as_of="x", universe_size=30, min_calibration=50)
+    for c in res["ranges"]:
+        assert 0 <= c["simulated"]["share"] <= 1 and c["simulated"]["n"] == c["n"]
+        assert set(c["calibrated"]) == {"80", "90", "95"}
+        cal = c["calibrated"]
+        assert cal["80"]["share"] <= cal["90"]["share"] <= cal["95"]["share"]
+        assert cal["80"]["above"] < cal["95"]["above"]
+    from research.forecast_accuracy import ranges
+    assert [g["group"] for g in res["ranges_by_volatility"]] == list(ranges.VOL_GROUPS)
+    assert res["sample"]["range_test"]["observations"] > 0
 
 def _staggered_panels(n=30, seed=3):
     """Like _random_panels, but companies file their 10-Ks on different days, so fiscal years that end
@@ -243,7 +242,7 @@ def test_sector_forecast_waits_for_a_peer_filing_on_the_same_fiscal_year():
 def test_range_hits_never_see_the_future():
     """A forecast's range is built only from errors whose actuals were filed by its own filing date:
     wrecking every actual filed later leaves the range (its width and calibration count) unchanged."""
-    from research.forecast_accuracy import calibration, rescore
+    from research.forecast_accuracy import calibration, ranges
     panels = _staggered_panels()
     for cutoff in ("2016-02-10", "2017-03-15", "2019-05-20"):
         runs = []
@@ -252,7 +251,7 @@ def test_range_hits_never_see_the_future():
             study.add_sector_forecasts(ps)
             calibration.add_blend(ps)
             runs.append([(r["cik"], r["h"], r["origin"], r["n_calibration"], r["reach"])
-                         for r in rescore.range_hits(ps, min_calibration=50) if r["origin"] <= cutoff])
+                         for r in ranges.range_hits(ps, min_calibration=50) if r["origin"] <= cutoff])
         assert runs[0] and runs[0] == runs[1]
 
 
