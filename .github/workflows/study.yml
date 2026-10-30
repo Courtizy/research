@@ -1,6 +1,7 @@
 # Re-runs a study from the SEC on demand and uploads the result for review.
 # Needs the repository secret SEC_USER_AGENT ("Your Name you@example.com").
-# To publish, download the artifact, commit site/data/<study>.json, and push.
+# Runs Study 01 from the SEC, then Study 01b and the calibration tables from the same panels.
+# To publish, download the artifact, commit its files under site/data/, and push.
 name: Study
 
 on:
@@ -25,7 +26,14 @@ jobs:
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python scripts/run_forecast_accuracy.py ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+      - name: Re-score against the fixed Valuation Model (Study 01b)
+        run: python scripts/run_forecast_rescore.py
+      - name: Calibration tables for the Valuation Model
+        run: python scripts/calibrate_revenue_errors.py
       - uses: actions/upload-artifact@v4
         with:
           name: forecast_accuracy
-          path: site/data/forecast_accuracy.json
+          path: |
+            site/data/forecast_accuracy.json
+            site/data/forecast_accuracy_rescore.json
+            site/data/calibration/
