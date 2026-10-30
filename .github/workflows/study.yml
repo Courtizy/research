@@ -2,7 +2,7 @@
 # The SEC asks for a contact User-Agent. It is public contact info, not a credential, so it is set here;
 # a repository secret SEC_USER_AGENT overrides it.
 # Runs Study 01 from the SEC, then the calibration tables from the same panels.
-# To publish, download the artifact, commit its files under site/data/, and push.
+# With "commit" ticked, the results are also committed to the branch the run was started on (open a PR from it to publish).
 name: Study
 
 on:
@@ -11,6 +11,13 @@ on:
       limit:
         description: "Only the first N companies (blank = all)"
         required: false
+      commit:
+        description: "Commit the results to this branch"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
 
 jobs:
   run:
@@ -35,3 +42,11 @@ jobs:
           path: |
             site/data/forecast_accuracy.json
             site/data/calibration/
+      - name: Commit the results to this branch
+        if: ${{ inputs.commit }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/forecast_accuracy.json site/data/calibration/
+          git diff --cached --quiet || git commit -m "Study 01 results from run ${{ github.run_id }}"
+          git push
