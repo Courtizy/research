@@ -30,8 +30,21 @@ OUT = ROOT / "site" / "data" / "forecast_accuracy.json"
 
 
 def engine_version() -> str:
-    from importlib.metadata import version
-    return f"valuation {version('valuation')} @ {(ROOT / 'ENGINE').read_text().strip()[:7]}"
+    """"valuation <version> @ <commit>", read from the engine checkout itself. Package metadata from an
+    earlier `pip install -e` can name an older version after the checkout moves, so it isn't used, and a
+    checkout that isn't at the commit pinned in ENGINE is refused."""
+    import re
+    import subprocess
+
+    import valuation
+    repo = Path(valuation.__file__).resolve().parents[2]
+    head = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"], capture_output=True, text=True,
+                          check=True).stdout.strip()
+    pinned = (ROOT / "ENGINE").read_text().strip()
+    if head != pinned:
+        raise SystemExit(f"engine checkout {repo} is at {head[:7]}, ENGINE pins {pinned[:7]}: run scripts/setup_engine.sh")
+    version = re.search(r'^version\s*=\s*"([^"]+)"', (repo / "pyproject.toml").read_text(), re.M).group(1)
+    return f"valuation {version} @ {head[:7]}"
 
 
 def build_universe(sec: SecSectorAdapter) -> list[dict]:

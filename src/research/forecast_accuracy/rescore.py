@@ -6,8 +6,9 @@ After is what the engine ships from 0.9.0: a base case that blends no change, th
 sector's growth, and ranges taken from the spread of past misses, scaled by how volatile the
 company's revenue has been (calibration.py).
 
-The ranges are scored out of sample: each base year from 2014 on is scored with quantiles built
-only from errors that were known by then, and the old band is scored on exactly the same
+The ranges are scored out of sample and point in time: each forecast from base year 2014 on is scored
+with quantiles built only from errors whose actual had been filed by that forecast's own filing date
+(a past fiscal year having ended is not enough; its 10-K may not be out yet), and the old band is scored on exactly the same
 observations. The blend has no fitted weights, but it was chosen after looking at this data, so the
 splits (before and after 2020, by sector, by prior growth) are the guard against having fit noise;
 the next years' 10-Ks are the real out-of-sample test.
@@ -15,10 +16,11 @@ the next years' 10-Ks are the real out-of-sample test.
 from __future__ import annotations
 
 import math
+from bisect import insort
 from collections import defaultdict
 from statistics import median
 
-from .calibration import _q, add_blend, scale
+from .calibration import _q, add_blend, known_quantiles, scale
 from .metrics import (accuracy, bias_by_growth, by_division, clustered_mean, division, norm_p, observations,
                       winsorize)
 from .methods import HORIZONS
@@ -33,8 +35,9 @@ VOL_GROUPS = ("steady", "middle", "volatile")
 def range_hits(panels: list[dict], center: str = "blend", levels=LEVELS, first_year: int = FIRST_TEST_YEAR,
                min_calibration: int = MIN_CALIBRATION) -> list[dict]:
     """One row per scored observation from `first_year` on: whether the actual fell inside the calibrated
-    range at each level (quantiles from errors known by that base year), inside the old P10-P90 band,
-    and how far each range reached below and above its forecast."""
+    range at each level, inside the old P10-P90 band, and how far each range reached below and above its
+    forecast. Each observation's quantiles come only from errors whose actual had been filed on or before
+    its own origin date (known_errors), so the range is what the model could have been calibrated to that day."""
     obs: dict[int, list[dict]] = {h: [] for h in HORIZONS}
     for p in panels:
         if division(p.get("sic")) in EXCLUDED_DIVISIONS:
@@ -47,24 +50,23 @@ def range_hits(panels: list[dict], center: str = "blend", levels=LEVELS, first_y
                 a = o["actual"].get(h)
                 if a and a > 0 and f.get(h) and f[h] > 0:
                     obs[h].append({"cik": p["cik"], "h": h, "year": int(o["base_end"][:4]), "s": s,
-                                   "e": math.log(a / f[h]), "a": a,
+                                   "origin": o["origin"], "known": o["actual_origin"][h],
+                                   "e": math.log(a / f[h]), "z": math.log(a / f[h]) / s, "a": a,
                                    "old": (rev["model_p10"][h], rev["model"][h], rev["model_p90"][h])})
     out = []
     for h, rows in obs.items():
-        for y in sorted({r["year"] for r in rows if r["year"] >= first_year}):
-            cal = sorted(r["e"] / r["s"] for r in rows if r["year"] + h <= y)
-            if len(cal) < min_calibration:
+        tests = [r for r in rows if r["year"] >= first_year]
+        for r, (n, q) in zip(tests, known_quantiles(rows, tests, levels)):
+            if n < min_calibration:
                 continue
-            q = {lvl: (_q(cal, (1 - lvl) / 2), _q(cal, 1 - (1 - lvl) / 2)) for lvl in levels}
-            for r in (r for r in rows if r["year"] == y):
-                lo_old, mid_old, hi_old = r["old"]
-                out.append({
-                    "cik": r["cik"], "h": h, "year": y, "scale": r["s"],
-                    "hit": {lvl: lo * r["s"] <= r["e"] <= hi * r["s"] for lvl, (lo, hi) in q.items()},
-                    "reach": {lvl: (1 - math.exp(lo * r["s"]), math.exp(hi * r["s"]) - 1) for lvl, (lo, hi) in q.items()},
-                    "old_hit": lo_old <= r["a"] <= hi_old,
-                    "old_reach": (1 - lo_old / mid_old, hi_old / mid_old - 1),
-                })
+            lo_old, mid_old, hi_old = r["old"]
+            out.append({
+                "cik": r["cik"], "h": h, "year": r["year"], "origin": r["origin"], "scale": r["s"], "n_calibration": n,
+                "hit": {lvl: lo * r["s"] <= r["e"] <= hi * r["s"] for lvl, (lo, hi) in q.items()},
+                "reach": {lvl: (1 - math.exp(lo * r["s"]), math.exp(hi * r["s"]) - 1) for lvl, (lo, hi) in q.items()},
+                "old_hit": lo_old <= r["a"] <= hi_old,
+                "old_reach": (1 - lo_old / mid_old, hi_old / mid_old - 1),
+            })
     return out
 
 
@@ -159,6 +161,7 @@ def run(panels: list[dict], *, engine: str, as_of: str, universe_size: int,
         "coverage_by_volatility": sorted(coverage_by(hits, _vol_group(hits)), key=lambda g: VOL_GROUPS.index(g["group"])),
     }
     res["headline"] = headline(res)
+    res["memo"] = memo(res)
     return res
 
 
@@ -189,3 +192,64 @@ def headline(res: dict) -> dict:
             {"value": f"{sk * 100:+.0f}%", "label": "New base case accuracy vs no change, 3 years out"},
             {"value": f"{res['sample']['companies_scored']}", "label": "Companies scored"}]
     return {"lead": lead, "sub": sub, "kpis": kpis}
+
+
+def _off(mean_log: float) -> str:
+    x = math.exp(mean_log) - 1
+    return f"{_pct(abs(x))} {'high' if x >= 0 else 'low'}"
+
+
+def memo(res: dict) -> dict:
+    """The one-page memo's findings and practice points, worded from the results (no typed numbers)."""
+    cov = {c["h"]: c for c in res["coverage"]}
+    acc = {(a["method"], a["h"]): a for a in res["accuracy"]}
+    gain = {g["h"]: g for g in res["blend_vs_model"]}
+    if 3 not in cov or ("blend", 3) not in acc:
+        return {"findings": [], "practice": []}
+    findings, practice = [], []
+    hs = [h for h in (1, 3, 5) if h in cov]
+    findings.append({"label": "Ranges",
+                     "text": "The old P10–P90 band held " + ", ".join(f"{_pct(cov[h]['before']['share'])} ({h} yr)" for h in hs)
+                             + " of outcomes; the calibrated 80% range held "
+                             + ", ".join(f"{_pct(cov[h]['after']['80']['share'])} ({h} yr)" for h in hs)
+                             + f", each scored only on forecasts its calibration had not seen "
+                               f"({res['sample']['range_test']['observations']:,} forecasts, "
+                               f"{res['sample']['range_test']['companies']} companies)."})
+    yr = [g["80"] for g in res.get("coverage_by_year", []) if g["n"] >= 30]
+    vol = res.get("coverage_by_volatility", [])
+    if yr and vol:
+        findings.append({"label": "Held in every slice?",
+                         "text": f"Three years out, the 80% range held {_pct(min(yr))}–{_pct(max(yr))} across base years and "
+                                 + ", ".join(f"{_pct(g['80'])} for {g['group']}" for g in vol) + " companies by revenue volatility."})
+    g3 = gain.get(3)
+    if g3:
+        b3, sk, t = acc[("blend", 3)], acc[("blend", 3)]["skill_vs_naive"], acc[("blend", 3)]["loss_diff_vs_naive"]["t"]
+        findings.append({"label": "Base case",
+                         "text": f"Three years out the blended base case had {_pct(abs(g3['gain']))} "
+                                 f"{'less' if g3['gain'] >= 0 else 'more'} error than the old fade (t = {abs(g3['t']):.1f}) and "
+                                 f"{_pct(abs(sk))} {'less' if sk >= 0 else 'more'} than assuming no change (t = {abs(t):.1f}); "
+                                 f"its median miss was {_pct(math.exp(b3['median_abs_error']) - 1)}."})
+    bg = res.get("bias_by_growth") or []
+    if bg:
+        top = bg[-1]
+        findings.append({"label": "Fast growers",
+                         "text": f"For the fastest-growing tenth (median prior growth {_pct(top['g3_median'])}), the old forecast ran "
+                                 f"{_off(top['model']['mean'])} three years out (t = {top['model']['t']:.1f}); "
+                                 f"the blend ran {_off(top['blend']['mean'])} (t = {top['blend']['t']:.1f})."})
+    a80 = cov[3]["after"]["80"]
+    if a80["p_vs_nominal"] is not None and a80["p_vs_nominal"] >= 0.05:
+        practice.append({"title": "Read the 80% range at face value.",
+                         "text": f"It held {_pct(a80['share'])} three years out, not measurably different from 80%. It is wide: "
+                                 f"a median {_pct(a80['below'])} below and {_pct(a80['above'])} above the base case."})
+    else:
+        practice.append({"title": "Adjust the 80% range.",
+                         "text": f"It held {_pct(a80['share'])} three years out, measurably "
+                                 f"{'more' if a80['share'] > 0.8 else 'less'} than 80% (z = {a80['z_vs_nominal']:.1f})."})
+    if gain and all(g["t"] is not None and g["t"] <= -2 for g in gain.values()):
+        practice.append({"title": "Start from the blend, not recent growth.",
+                         "text": f"Averaging no change, the faded trend and the sector beat the fade at every horizon "
+                                 f"from 1 to {max(gain)} years. Argue for departing from it with company-specific evidence."})
+    practice.append({"title": "Treat this as in-sample until new 10-Ks arrive.",
+                     "text": "The blend was chosen after seeing this data. The ranges were tested out of sample, but the "
+                             "forecasts filed after this study are the real test."})
+    return {"findings": findings, "practice": practice}

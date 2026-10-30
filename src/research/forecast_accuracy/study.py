@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import math
 from collections import defaultdict
+from datetime import date, timedelta
 from statistics import median
 
 from .methods import sector_forecasts
@@ -11,22 +12,32 @@ from .metrics import (accuracy, bias_by_growth, by_division, coverage, division,
 
 MIN_SECTOR_PEERS = 5
 EXCLUDED_DIVISIONS = {"Finance"}
+PEER_STALE_DAYS = 400       # a year plus slack for late filers
 
 
 def add_sector_forecasts(panels: list[dict]) -> None:
-    """Sector growth = median three-year CAGR of the other companies in the same SIC division
-    whose base year ends in the same calendar year (leave-one-out, so a firm never forecasts itself)."""
-    pool: dict[tuple, list[tuple[str, float]]] = defaultdict(list)
+    """Sector growth = median three-year CAGR of the other companies in the same SIC division, each as of
+    its latest 10-K filed on or before this origin's filing date (leave-one-out, so a firm never forecasts
+    itself). Point in time: a peer's filing made after the origin can't move the forecast. A peer whose
+    latest 10-K is more than PEER_STALE_DAYS old has stopped filing and drops out."""
+    events: dict[str | None, list[tuple[str, str, float | None]]] = defaultdict(list)
     for p in panels:
-        d = division(p.get("sic"))
         for o in p["origins"]:
-            if o["g3"] is not None:
-                pool[(d, o["base_end"][:4])].append((p["cik"], o["g3"]))
-    for p in panels:
-        d = division(p.get("sic"))
-        for o in p["origins"]:
-            peers = [g for c, g in pool.get((d, o["base_end"][:4]), []) if c != p["cik"]]
+            events[division(p.get("sic"))].append((o["origin"], p["cik"], o["g3"]))
+    for d, evs in events.items():
+        evs.sort()
+        todo = sorted(((o["origin"], p["cik"], o) for p in panels if division(p.get("sic")) == d
+                       for o in p["origins"]), key=lambda t: t[:2])
+        latest: dict[str, tuple[str, float | None]] = {}
+        i = 0
+        for when, cik, o in todo:
+            while i < len(evs) and evs[i][0] <= when:   # every peer filing made by the end of that day
+                latest[evs[i][1]] = (evs[i][0], evs[i][2])
+                i += 1
+            cutoff = (date.fromisoformat(when) - timedelta(days=PEER_STALE_DAYS)).isoformat()
+            peers = [g for c, (filed, g) in latest.items() if c != cik and g is not None and filed >= cutoff]
             f = sector_forecasts(o["r0"], median(peers) if len(peers) >= MIN_SECTOR_PEERS else None)
+            o["revenue"].pop("sector", None)
             if f:
                 o["revenue"]["sector"] = f
 

@@ -32,6 +32,9 @@ def main(argv=None) -> int:
         return 1
     universe = len(json.loads((DATA / "universe.json").read_text()))
     res = rescore.run(panels, engine=engine_version(), as_of=date.today().isoformat(), universe_size=universe)
+    # the panels (filings read, the old model's forecasts) come from Study 01's run, on its own engine
+    study1 = ROOT / "site" / "data" / "forecast_accuracy.json"
+    res["panels_engine"] = json.loads(study1.read_text())["engine"] if study1.exists() else None
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(res, indent=1))
     print(f"{res['sample']['observations']} observations, {res['sample']['range_test']['observations']} range tests -> {a.out}")
