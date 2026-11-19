@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import os
 import sys
 from datetime import date
 from pathlib import Path
@@ -21,6 +22,7 @@ from valuation.L0_ingest.cache import FileCache
 from valuation.L0_ingest.http import HttpError
 from valuation.L0_ingest.sec_sector import REVENUE_TAGS, SecSectorAdapter
 
+from research import provenance
 from research.forecast_accuracy import study, universe
 from research.forecast_accuracy.panel import company_panel, keep_tags
 
@@ -109,6 +111,7 @@ def main(argv=None) -> int:
         if i % 25 == 0:
             print(f"{i}/{len(chosen)} companies", file=sys.stderr)
     result = study.run(panels, engine=engine_version(), as_of=date.today().isoformat(), universe_size=len(chosen))
+    result["run"] = provenance.run_info(dict(os.environ))       # which Actions run wrote this file, or "local"
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(result, indent=1))
     s = result["sample"]
