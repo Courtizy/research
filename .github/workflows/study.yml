@@ -1,6 +1,5 @@
 # Re-runs a study from the SEC on demand and uploads the result for review.
-# The SEC asks for a contact User-Agent. It is public contact info, not a credential, so it is set here;
-# a repository secret SEC_USER_AGENT overrides it.
+# Needs the repository Actions secret (or variable) SEC_USER_AGENT ("Your Name you@example.com"); the SEC asks for a contact.
 # Runs Study 01 from the SEC, then the calibration tables from the same panels.
 # With "commit" ticked, the results are also committed to the branch the run was started on (open a PR from it to publish).
 name: Study
@@ -32,7 +31,7 @@ jobs:
       - run: pip install -e ".[dev]"
       - name: Run the forecast-accuracy study
         env:
-          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT || 'Jason Courtoy courtizy@gmail.com' }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT || vars.SEC_USER_AGENT }}
         run: python scripts/run_forecast_accuracy.py ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
       - name: Calibration tables for the Valuation Model
         run: python scripts/calibrate_revenue_errors.py
