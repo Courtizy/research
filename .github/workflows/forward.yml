@@ -1,0 +1,46 @@
+# The forward scoreboard: every Monday, log a forecast for each 10-K filed since the last run by a company in
+# Study 01's or the held-out sample, with the engine and calibration tables frozen in forward/FREEZE.json,
+# score any forecast whose actual has now been reported, and republish the site.
+# Appends to forward/forecasts.jsonl on main (a hash chain: an earlier record can't be edited without breaking it).
+# Needs the repository Actions secret (or variable) SEC_USER_AGENT.
+name: Forward scoreboard
+
+on:
+  schedule:
+    - cron: "17 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write          # to start the Pages deploy (a push by this workflow's token doesn't trigger it)
+
+concurrency:
+  group: forward
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: scripts/setup_engine.sh "$(python -c 'import json;print(json.load(open("forward/FREEZE.json"))["engine"])')"
+      - run: pip install -e .
+      - name: Log new 10-Ks and score what's been reported
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT || vars.SEC_USER_AGENT }}
+        run: python scripts/forward_log.py
+      - name: Commit and republish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add forward/ site/data/scoreboard.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Forward scoreboard: run ${{ github.run_id }}"
+          git push
+          gh workflow run pages.yml --ref "${{ github.ref_name }}"

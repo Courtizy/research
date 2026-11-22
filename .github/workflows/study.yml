@@ -3,6 +3,7 @@
 #   forecast-accuracy  Study 01 from the SEC, then the calibration tables from the same panels
 #   held-out           the held-out test of Study 01 (plan: docs/preregistration/forecast-accuracy-held-out.md):
 #                      Study 01's companies for the ranges' calibration, then the held-out sample
+#   forward            one pass of the forward scoreboard with its frozen engine (forward.yml runs it weekly on main)
 # With "commit" ticked, the results are also committed to the branch the run was started on (open a PR from it
 # to publish). A held-out run with "limit" set is a plumbing check and is never committed.
 name: Study
@@ -13,7 +14,7 @@ on:
       study:
         description: "Which study"
         type: choice
-        options: [forecast-accuracy, held-out]
+        options: [forecast-accuracy, held-out, forward]
         default: forecast-accuracy
       limit:
         description: "Only the first N companies (blank = all)"
@@ -53,12 +54,12 @@ jobs:
           restore-keys: sec-${{ hashFiles('ENGINE') }}-
 
       - name: Run the forecast-accuracy study
-        if: ${{ inputs.study != 'held-out' }}
+        if: ${{ inputs.study == 'forecast-accuracy' }}
         run: python scripts/run_forecast_accuracy.py $LIMIT
       - name: Calibration tables for the Valuation Model
-        if: ${{ inputs.study != 'held-out' }}
+        if: ${{ inputs.study == 'forecast-accuracy' }}
         run: python scripts/calibrate_revenue_errors.py
-      - if: ${{ inputs.study != 'held-out' }}
+      - if: ${{ inputs.study == 'forecast-accuracy' }}
         uses: actions/upload-artifact@v4
         with:
           name: forecast_accuracy
@@ -66,7 +67,7 @@ jobs:
             site/data/forecast_accuracy.json
             site/data/calibration/
       - name: Commit the results to this branch
-        if: ${{ inputs.study != 'held-out' && inputs.commit }}
+        if: ${{ inputs.study == 'forecast-accuracy' && inputs.commit }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -89,4 +90,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/data/held_out.json
           git diff --cached --quiet || git commit -m "Held-out test results from run ${{ github.run_id }}"
+          git push
+
+      - name: Forward scoreboard (frozen engine)
+        if: ${{ inputs.study == 'forward' }}
+        run: |
+          scripts/setup_engine.sh "$(python -c 'import json;print(json.load(open("forward/FREEZE.json"))["engine"])')"
+          python scripts/forward_log.py $LIMIT
+      - name: Commit the forward log to this branch
+        if: ${{ inputs.study == 'forward' && inputs.commit && !inputs.limit }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add forward/ site/data/scoreboard.json
+          git diff --cached --quiet || git commit -m "Forward scoreboard from run ${{ github.run_id }}"
           git push
