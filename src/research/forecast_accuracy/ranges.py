@@ -27,12 +27,8 @@ MIN_CALIBRATION = 200
 VOL_GROUPS = ("steady", "middle", "volatile")
 
 
-def range_hits(panels: list[dict], center: str = "blend", levels=LEVELS, first_year: int = FIRST_TEST_YEAR,
-               min_calibration: int = MIN_CALIBRATION) -> list[dict]:
-    """One row per scored observation from `first_year` on: whether the actual fell inside the calibrated
-    range at each level, inside the old P10-P90 band, and how far each range reached below and above its
-    forecast. Each observation's quantiles come only from errors whose actual had been filed on or before
-    its own origin date (known_errors), so the range is what the model could have been calibrated to that day."""
+def _range_obs(panels: list[dict], center: str) -> dict[int, list[dict]]:
+    """Per horizon, every scored forecast's error around `center`, raw (e) and scaled (z), with its dates."""
     obs: dict[int, list[dict]] = {h: [] for h in HORIZONS}
     for p in panels:
         if division(p.get("sic")) in EXCLUDED_DIVISIONS:
@@ -48,14 +44,32 @@ def range_hits(panels: list[dict], center: str = "blend", levels=LEVELS, first_y
                                    "origin": o["origin"], "known": o["actual_origin"][h],
                                    "e": math.log(a / f[h]), "z": math.log(a / f[h]) / s, "a": a,
                                    "old": (rev["model_p10"][h], rev["model"][h], rev["model_p90"][h])})
+    return obs
+
+
+def range_hits(panels: list[dict], center: str = "blend", levels=LEVELS, first_year: int = FIRST_TEST_YEAR,
+               min_calibration: int = MIN_CALIBRATION, calibration: list[dict] | None = None) -> list[dict]:
+    """One row per scored observation from `first_year` on: whether the actual fell inside the calibrated
+    range at each level, inside the old P10-P90 band, and how far each range reached below and above its
+    forecast. Each observation's quantiles come only from errors whose actual had been filed on or before
+    its own origin date (known_errors), so the range is what the model could have been calibrated to that day.
+    calibration: other panels to draw the errors from instead (the held-out test calibrates on Study 01's
+    companies and scores new ones); each row then also carries the unscaled range's hit."""
+    obs = _range_obs(panels, center)
+    pool = obs if calibration is None else _range_obs(calibration, center)
     out = []
     for h, rows in obs.items():
         tests = [r for r in rows if r["year"] >= first_year]
-        for r, (n, q) in zip(tests, known_quantiles(rows, tests, levels)):
+        known = known_quantiles(pool[h], tests, levels)
+        raw = known_quantiles([{**r, "z": r["e"]} for r in pool[h]], tests, levels) if calibration is not None \
+            else [None] * len(tests)
+        for r, (n, q), u in zip(tests, known, raw):
             if n < min_calibration:
                 continue
             lo_old, mid_old, hi_old = r["old"]
-            out.append({
+            extra = {} if u is None else {"hit_unscaled": {lvl: lo <= r["e"] <= hi for lvl, (lo, hi) in u[1].items()}}
+            out.append({**extra, "e": r["e"],
+                "half": {lvl: (hi - lo) / 2 * r["s"] for lvl, (lo, hi) in q.items()},
                 "cik": r["cik"], "h": h, "year": r["year"], "origin": r["origin"], "scale": r["s"], "n_calibration": n,
                 "hit": {lvl: lo * r["s"] <= r["e"] <= hi * r["s"] for lvl, (lo, hi) in q.items()},
                 "reach": {lvl: (1 - math.exp(lo * r["s"]), math.exp(hi * r["s"]) - 1) for lvl, (lo, hi) in q.items()},
