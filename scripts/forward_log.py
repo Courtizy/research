@@ -91,6 +91,9 @@ def forecast(raw: dict, filed: str, table: dict) -> dict | str:
     scale, _ = company_scale(detail, table)
     rng = {lvl: {str(b["year"]): [path[b["year"] - 1] * b["low"], path[b["year"] - 1] * b["high"]]
                  for b in rows if b["year"] <= 5} for lvl, rows in band(table, scale).items()}
+    if scale > 0.5:             # far outside the study's range: show what the engine saw
+        print(f"wide scale {scale:.2f} for {raw['entity'].get('name')} as of {filed}: " +
+              ", ".join(f"{p['end']} {p.get('label', '')} {p['values'].get('revenue')}" for p in annual[-7:]), file=sys.stderr)
     return {"base_end": base["end"], "base_revenue": r0, "g0": fc["revenue_growth"],
             "sector_growth": fc["sector_growth"], "scale": scale,
             "forecast": {str(h): path[h - 1] for h in forward.HORIZONS}, "range": rng}
