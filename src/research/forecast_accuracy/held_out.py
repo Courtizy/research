@@ -149,6 +149,20 @@ def _diff(gain: float, t: float | None) -> str:
     return s if t is None else f"{s} (t = {abs(t):.1f})"
 
 
+_FAILED = {"P1": "the blend didn't measurably beat no change",
+           "P2": "the blend wasn't measurably better than faded growth",
+           "P3": "the 80% range didn't hold 75–85% of outcomes"}
+_COUNT = {1: "One", 2: "Two", 3: "All three"}
+
+
+def _verdict(primary: list[dict]) -> str:
+    failed = [x["id"] for x in primary if not x["passed"]]
+    if not failed:
+        return "All three tests set in advance passed."
+    return (f"{_COUNT[len(failed)]} of the three tests set in advance failed: "
+            + "; ".join(_FAILED[i] for i in failed) + ".")
+
+
 def headline(res: dict) -> dict:
     """The held-out result in words, computed from the numbers."""
     p = {x["id"]: x for x in res["primary"]}
@@ -158,9 +172,7 @@ def headline(res: dict) -> dict:
     lead = (f"On {n} smaller companies the study had never looked at, the blend had {_diff(p['P1']['gain'], p['P1']['t'])} "
             f"than assuming no change three years out and {_diff(p['P2']['gain'], p['P2']['t'])} than faded growth, and "
             f"the calibrated 80% range held {_pct(p['P3']['share'])} of outcomes. "
-            + ("All three tests set in advance passed." if res["confirms"] else
-               "Not every test set in advance passed: " + ", ".join(x["id"] for x in res["primary"] if not x["passed"])
-               + " failed."))
+            + _verdict(res["primary"]))
     acc = {(a["method"], a["h"]): a for a in res["accuracy"]}
     shrink = next((x for x in res["blend_vs_shrink"] if x["h"] == PRIMARY_H), None)
     r3 = next((x for x in res["ranges"] if x["h"] == PRIMARY_H), None)
