@@ -19,6 +19,9 @@ on:
       limit:
         description: "Only the first N companies (blank = all)"
         required: false
+      since:
+        description: "Forward plumbing check only (with limit): forecast 10-Ks filed since this date"
+        required: false
       commit:
         description: "Commit the results to this branch"
         type: boolean
@@ -96,7 +99,7 @@ jobs:
         if: ${{ inputs.study == 'forward' }}
         run: |
           scripts/setup_engine.sh "$(python -c 'import json;print(json.load(open("forward/FREEZE.json"))["engine"])')"
-          python scripts/forward_log.py $LIMIT
+          python scripts/forward_log.py $LIMIT ${{ inputs.since && format('--since {0}', inputs.since) || '' }}
       - name: Commit the forward log to this branch
         if: ${{ inputs.study == 'forward' && inputs.commit && !inputs.limit }}
         run: |

@@ -99,7 +99,10 @@ def forecast(raw: dict, filed: str, table: dict) -> dict | str:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--limit", type=int, help="only the first N companies (a plumbing check; writes nothing)")
+    ap.add_argument("--since", help="plumbing check only (needs --limit): forecast 10-Ks filed since this date")
     a = ap.parse_args(argv)
+    if a.since and not a.limit:
+        raise SystemExit("--since is for a plumbing check: the log only ever starts at the freeze date")
 
     freeze = json.loads((FWD / "FREEZE.json").read_text())
     check_engine(freeze)
@@ -124,7 +127,7 @@ def main(argv=None) -> int:
         except Exception as e:  # noqa: BLE001  a company that stopped filing, or a transient error: next week
             skipped[f"submissions: {type(e).__name__}"] = skipped.get(f"submissions: {type(e).__name__}", 0) + 1
             continue
-        todo = forward.new_10ks(sub, freeze["frozen_on"], seen)
+        todo = forward.new_10ks(sub, a.since or freeze["frozen_on"], seen)
         if not todo:
             continue
         try:
@@ -147,6 +150,8 @@ def main(argv=None) -> int:
             print(f"{i}/{len(companies)} companies checked", file=sys.stderr)
     print(f"{added} new forecasts; skipped {skipped or 'none'}")
     if a.limit:
+        for r in log[-3:]:
+            print(json.dumps({k: r[k] for k in ("name", "filed", "base_end", "base_revenue", "forecast", "range")})[:600])
         return 0
     forward.write(LOG, log)
     s = forward.summary(log, freeze)
