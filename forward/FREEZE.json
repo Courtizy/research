@@ -1,8 +1,8 @@
 {
  "what": "The Valuation Model as frozen for the forward scoreboard: forecasts are logged for every 10-K filed on or after frozen_on, with this engine and these calibration tables, and never re-made.",
  "frozen_on": "2026-11-22",
- "engine": "0c70cd11cf98c037b195616efd222c1959858390",
- "engine_label": "valuation 0.11.1 @ 0c70cd1",
+ "engine": "e4332846014fd7053f5a01750cab5c96d392d5fd",
+ "engine_label": "valuation 0.11.1 + unreleased @ e433284",
  "calibration_sha256": {
   "configs/public/calibration/revenue_errors.json": "efe2376c870d86042dbad3a26444da3e455d892c6d7b1abd55b898f95eaf431d",
   "configs/public/calibration/sector_growth.json": "6570094eff738fcbc5a18eb319155bde024c860e794bb489f986850be67c4fc8"
