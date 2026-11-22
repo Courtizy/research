@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Install the Valuation Model engine at the commit pinned in ENGINE, as an editable checkout
 # (the engine reads its configs/ folder from the repo, so a plain wheel install can't run it).
+#   scripts/setup_engine.sh            the studies' engine (ENGINE)
+#   scripts/setup_engine.sh <commit>   another commit, e.g. the forward scoreboard's frozen engine
 set -euo pipefail
 cd "$(dirname "$0")/.."
-rev="$(cat ENGINE)"
+rev="${1:-$(cat ENGINE)}"
 if [ ! -d .engine/valuation/.git ]; then
   git clone --quiet https://github.com/Courtizy/valuation .engine/valuation
 fi

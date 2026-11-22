@@ -49,24 +49,28 @@ def engine_version() -> str:
     return f"valuation {version} @ {head[:7]}"
 
 
-def build_universe(sec: SecSectorAdapter) -> list[dict]:
-    path = DATA / "universe.json"
-    if path.exists():
-        return json.loads(path.read_text())
+def revenue_frames(sec: SecSectorAdapter) -> dict[int, list]:
     frames = {}
     for y in universe.COHORT_YEARS:
         rows = []
         for tag in REVENUE_TAGS:
             rows += sec.frame(tag, f"CY{y}") or []
         frames[y] = rows
-    chosen = universe.select(frames)
+    return frames
+
+
+def build_universe(sec: SecSectorAdapter) -> list[dict]:
+    path = DATA / "universe.json"
+    if path.exists():
+        return json.loads(path.read_text())
+    chosen = universe.select(revenue_frames(sec))
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(chosen, indent=1))
     return chosen
 
 
-def facts_for(sec: SecSectorAdapter, cik: str) -> dict | None:
-    path = DATA / "facts" / f"CIK{cik}.json.gz"
+def facts_for(sec: SecSectorAdapter, cik: str, data: Path = DATA) -> dict | None:
+    path = data / "facts" / f"CIK{cik}.json.gz"
     if path.exists():
         return json.loads(gzip.decompress(path.read_bytes()))
     try:
@@ -80,14 +84,30 @@ def facts_for(sec: SecSectorAdapter, cik: str) -> dict | None:
     return raw
 
 
-def panel_for(raw: dict, cik: str) -> dict:
-    path = DATA / "panels" / f"CIK{cik}.json"
+def panel_for(raw: dict, cik: str, data: Path = DATA) -> dict:
+    path = data / "panels" / f"CIK{cik}.json"
     if path.exists():
         return json.loads(path.read_text(), object_hook=_int_keys)
     p = company_panel(raw)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(p))
     return json.loads(path.read_text(), object_hook=_int_keys)
+
+
+def sec_adapter() -> SecSectorAdapter:
+    return SecSectorAdapter(cache=FileCache(ROOT / ".cache" / "sec", ttl_seconds=None))
+
+
+def load_panels(sec: SecSectorAdapter, chosen: list[dict], data: Path = DATA) -> list[dict]:
+    """Each company's panel, fetching and building what isn't on disk yet."""
+    panels = []
+    for i, c in enumerate(chosen, 1):
+        raw = facts_for(sec, c["cik"], data)
+        if raw and raw["facts"]:
+            panels.append(panel_for(raw, c["cik"], data))
+        if i % 25 == 0:
+            print(f"{i}/{len(chosen)} companies", file=sys.stderr)
+    return panels
 
 
 def _int_keys(d: dict) -> dict:
@@ -101,15 +121,9 @@ def main(argv=None) -> int:
     ap.add_argument("--out", type=Path, default=OUT)
     a = ap.parse_args(argv)
 
-    sec = SecSectorAdapter(cache=FileCache(ROOT / ".cache" / "sec", ttl_seconds=None))
+    sec = sec_adapter()
     chosen = build_universe(sec)[: a.limit]
-    panels = []
-    for i, c in enumerate(chosen, 1):
-        raw = facts_for(sec, c["cik"])
-        if raw and raw["facts"]:
-            panels.append(panel_for(raw, c["cik"]))
-        if i % 25 == 0:
-            print(f"{i}/{len(chosen)} companies", file=sys.stderr)
+    panels = load_panels(sec, chosen)
     result = study.run(panels, engine=engine_version(), as_of=date.today().isoformat(), universe_size=len(chosen))
     result["run"] = provenance.run_info(dict(os.environ))       # which Actions run wrote this file, or "local"
     a.out.parent.mkdir(parents=True, exist_ok=True)

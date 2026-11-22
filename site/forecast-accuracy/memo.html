@@ -39,6 +39,9 @@
     <p>Five ways of forecasting revenue one to five years ahead were scored against what companies later reported: no change, each company's own three-year growth, its sector's growth, growth fading toward the economy, and a blend of no change, the fade and the sector. Two ways of drawing a range around a forecast were scored too: a ±3-point wobble in growth, and quantiles of past misses scaled to the company's volatility. Each forecast, sector median and range used only filings public on the day it was made.</p>
     <h2>Findings</h2>
     <ol id="m-findings"></ol>
+    <h2>Tested on companies it had never seen</h2>
+    <p>The same methods, unchanged, were scored on a second sample the study had never looked at: <span id="m-held-sample"></span>. The tests and what would count as passing were <a href="https://github.com/Courtizy/research/blob/main/docs/preregistration/forecast-accuracy-held-out.md">written down before the run</a>.</p>
+    <ul id="m-held-out"></ul>
     <h2>What this means in practice</h2>
     <ul id="m-practice"></ul>
     <h2>In the Valuation Model</h2>
@@ -47,8 +50,8 @@
     <ul>
       <li>Mechanical forecasts from filings only. Analyst and management forecasts aren't scored.</li>
       <li>Associations, not causes.</li>
-      <li>The blend has no fitted weights, but its design was chosen with this sample in view. The ranges are scored out of sample; forecasts made after this study are the real test of the blend.</li>
-      <li>Large US filers only (revenue of $1B or more in a cohort year), finance excluded.</li>
+      <li>The blend has no fitted weights, but its design was chosen with the main sample in view; the held-out sample checks that. <a href="../scoreboard/">Forecasts made after this study</a> are the fully clean test.</li>
+      <li>US public filers only: $1B or more of revenue in a cohort year for the main sample, $250M to $1B for the held-out one. Finance excluded.</li>
     </ul>
     <p class="memo__links"><a class="button" href="../notebooks/forecast-accuracy.html">Read the notebook</a></p>
   </main>

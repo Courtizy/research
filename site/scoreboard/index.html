@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-app="valuation">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forward Scoreboard · Research &amp; Analysis · Jason C. Courtoy</title>
+  <meta name="description" content="The Valuation Model's revenue forecasts, logged as companies file and scored as later filings report what happened.">
+  <link rel="icon" type="image/svg+xml" href="../brand/icons/valuation.svg">
+  <link rel="stylesheet" href="../brand/css/brand.css">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="hub-bar"><div class="hub-bar__inner">
+    <a href="https://courtizy.github.io/">← Decision Models</a><span>Jason C. Courtoy</span>
+  </div></div>
+  <header class="brand-header">
+    <div class="brand-header__inner">
+      <div class="brand-tile" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 48l14-14 10 8 20-24"/><path d="M44 18h10v10"/></svg>
+      </div>
+      <div class="brand-header__text">
+        <h1 class="brand-header__name">Forward Scoreboard</h1>
+        <p class="brand-header__question">Do the Valuation Model's forecasts hold on filings made after it was frozen?</p>
+      </div>
+      <span class="app-status app-status--live"><span class="app-status__dot" aria-hidden="true"></span>Live</span>
+    </div>
+  </header>
+    <main class="wrap memo">
+    <p class="eyebrow">Research &amp; Analysis · Study 01 · Forward test</p>
+    <p class="memo__to small" id="sb-meta"></p>
+    <h2>What this is</h2>
+    <p>Every study so far scores forecasts against the past, so the method could have been tuned to it. This one can't be. The Valuation Model's engine and calibration tables were frozen on <span id="sb-frozen"></span>. Every week since, each new 10-K from a company in Study 01's or the held-out sample gets the model's default base case and its 80% and 90% revenue ranges for one to five years out, written to a log that can only grow: each entry carries the hash of the one before it. When a later 10-K reports the year, the forecast is scored.</p>
+    <h2>So far</h2>
+    <ul id="sb-status"><li>Loading…</li></ul>
+    <div id="sb-table"></div>
+    <p class="small">Inside the range should come out near 80% and 90%. "Beats no change" is the share of forecasts that missed by less than assuming revenue stays flat would have.</p>
+    <p class="memo__links"><a class="button" href="https://github.com/Courtizy/research/blob/main/forward/forecasts.jsonl">See the log</a> <a class="button" href="../notebooks/forecast-accuracy.html">Read Study 01</a></p>
+  </main>
+  <footer class="brand-footer">
+    <p>Personal project · public or synthetic data only · not investment advice · not endorsed by DoD or the U.S. Air Force</p>
+    <p class="small">Built from SEC filings. Analysis of method, not a recommendation on any company.</p>
+  </footer>
+  <script type="module" src="../assets/scoreboard.js"></script>
+</body>
+</html>

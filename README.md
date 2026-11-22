@@ -4,7 +4,7 @@
 
 **[Read the studies](https://courtizy.github.io/research/)**
 
-The models answer one question each. These studies test them, and the questions around them, on real public data. Each one states its question and hypotheses before looking, publishes its code and sources, reports how sure it is, and ends in a one-page memo for a decision-maker.
+The models answer one question each. These studies test them, and the questions around them, on real public data. Each one states its question and hypotheses before looking, publishes its code and sources, reports how sure it is, and ends in a one-page memo for a decision-maker. Where a method was chosen with the data in view, it is also scored on a sample held out from the start, with the test [written down before the run](docs/preregistration/).
 
 | # | Study | Question | Status |
 |---|---|---|---|
@@ -30,6 +30,7 @@ pip install -e ".[dev]"
 pytest -q
 export SEC_USER_AGENT="Your Name you@example.com"        # the SEC requires contact details
 python scripts/run_forecast_accuracy.py                  # about 1–2 hours for the full universe; resumes if stopped
+python scripts/run_held_out.py                           # the held-out test of Study 01 -> site/data/held_out.json
 python scripts/export_site.py
 pip install -e ".[notebooks]"                            # plus Quarto 1.6 (quarto.org)
 quarto render notebooks --execute                        # site/notebooks/<study>.html

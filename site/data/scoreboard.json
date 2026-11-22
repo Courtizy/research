@@ -1,0 +1,14 @@
+{
+ "study": "forward-scoreboard",
+ "frozen_on": "2026-11-22",
+ "engine": "valuation 0.11.1 @ 0c70cd1",
+ "log_intact": true,
+ "forecasts": 0,
+ "companies": 0,
+ "first_filed": null,
+ "last_filed": null,
+ "last_hash": null,
+ "scored": [],
+ "universe": null,
+ "checked_at": null
+}
