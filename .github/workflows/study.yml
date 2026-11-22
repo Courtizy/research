@@ -1,12 +1,20 @@
 # Re-runs a study from the SEC on demand and uploads the result for review.
 # Needs the repository Actions secret (or variable) SEC_USER_AGENT ("Your Name you@example.com"); the SEC asks for a contact.
-# Runs Study 01 from the SEC, then the calibration tables from the same panels.
-# With "commit" ticked, the results are also committed to the branch the run was started on (open a PR from it to publish).
+#   forecast-accuracy  Study 01 from the SEC, then the calibration tables from the same panels
+#   held-out           the held-out test of Study 01 (plan: docs/preregistration/forecast-accuracy-held-out.md):
+#                      Study 01's companies for the ranges' calibration, then the held-out sample
+# With "commit" ticked, the results are also committed to the branch the run was started on (open a PR from it
+# to publish). A held-out run with "limit" set is a plumbing check and is never committed.
 name: Study
 
 on:
   workflow_dispatch:
     inputs:
+      study:
+        description: "Which study"
+        type: choice
+        options: [forecast-accuracy, held-out]
+        default: forecast-accuracy
       limit:
         description: "Only the first N companies (blank = all)"
         required: false
@@ -21,31 +29,55 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 300
+    env:
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT || vars.SEC_USER_AGENT }}
+      LIMIT: ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # the held-out run records the commit that added its written plan
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: scripts/setup_engine.sh
       - run: pip install -e ".[dev]"
+
       - name: Run the forecast-accuracy study
-        env:
-          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT || vars.SEC_USER_AGENT }}
-        run: python scripts/run_forecast_accuracy.py ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+        if: ${{ inputs.study != 'held-out' }}
+        run: python scripts/run_forecast_accuracy.py $LIMIT
       - name: Calibration tables for the Valuation Model
+        if: ${{ inputs.study != 'held-out' }}
         run: python scripts/calibrate_revenue_errors.py
-      - uses: actions/upload-artifact@v4
+      - if: ${{ inputs.study != 'held-out' }}
+        uses: actions/upload-artifact@v4
         with:
           name: forecast_accuracy
           path: |
             site/data/forecast_accuracy.json
             site/data/calibration/
       - name: Commit the results to this branch
-        if: ${{ inputs.commit }}
+        if: ${{ inputs.study != 'held-out' && inputs.commit }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/data/forecast_accuracy.json site/data/calibration/
           git diff --cached --quiet || git commit -m "Study 01 results from run ${{ github.run_id }}"
+          git push
+
+      - name: Run the held-out test
+        if: ${{ inputs.study == 'held-out' }}
+        run: python scripts/run_held_out.py $LIMIT
+      - if: ${{ inputs.study == 'held-out' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: held_out
+          path: site/data/held_out.json
+      - name: Commit the held-out results to this branch
+        if: ${{ inputs.study == 'held-out' && inputs.commit && !inputs.limit }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/held_out.json
+          git diff --cached --quiet || git commit -m "Held-out test results from run ${{ github.run_id }}"
           git push
