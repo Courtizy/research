@@ -3,12 +3,12 @@
  "frozen_on": "2026-11-22",
  "engine": "valuation 0.11.1 + unreleased @ e433284",
  "log_intact": true,
- "forecasts": 0,
- "companies": 0,
- "first_filed": null,
- "last_filed": null,
- "last_hash": null,
+ "forecasts": 2,
+ "companies": 2,
+ "first_filed": "2026-11-23",
+ "last_filed": "2026-11-23",
+ "last_hash": "7d689baaa1c243e02e446b77614c9ebcf2cf8d1e8d272d7153ac2b24e5285b15",
  "scored": [],
- "universe": null,
- "checked_at": null
+ "universe": 1051,
+ "checked_at": "2026-11-23T23:59:47+00:00"
 }

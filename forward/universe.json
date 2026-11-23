@@ -1,0 +1,5257 @@
+[
+ {
+  "cik": "0000001800",
+  "name": "ABBOTT LABORATORIES",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000002969",
+  "name": "AIR PRODUCTS AND CHEMICALS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000003570",
+  "name": "CHENIERE ENERGY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000004447",
+  "name": "HESS CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000004904",
+  "name": "AMERICAN ELECTRIC POWER COMPANY, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000004962",
+  "name": "American Express Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000004977",
+  "name": "Aflac Incorporated",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000005272",
+  "name": "AMERICAN INTERNATIONAL GROUP, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000005513",
+  "name": "UNUM GROUP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000005981",
+  "name": "AMERICAN VANGUARD CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000006176",
+  "name": "AMPCO PITTSBURGH CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000006201",
+  "name": "AMERICAN AIRLINES GROUP INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000006284",
+  "name": "ANALOGIC CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000006951",
+  "name": "APPLIED MATERIALS INC /DE",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000007032",
+  "name": "ARAMARK CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000007084",
+  "name": "ARCHER-DANIELS-MIDLAND CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000007536",
+  "name": "ARROW ELECTRONICS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000008670",
+  "name": "Automatic     Data Processing, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000008858",
+  "name": "AVNET, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000008868",
+  "name": "AVON PRODUCTS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000009092",
+  "name": "BADGER METER, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000009389",
+  "name": "BALL Corp",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000010456",
+  "name": "Baxter International Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000010795",
+  "name": "BECTON, DICKINSON AND COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000012927",
+  "name": "BOEING CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000014272",
+  "name": "BRISTOL-MYERS SQUIBB COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000015511",
+  "name": "BNSF RAILWAY CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000016099",
+  "name": "LUBY\u2019S, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000018230",
+  "name": "CATERPILLAR INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000018926",
+  "name": "LUMEN TECHNOLOGIES,\u00a0INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000019446",
+  "name": "CANTEL MEDICAL LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000019617",
+  "name": "JPMORGAN CHASE & CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000020171",
+  "name": "CHUBB CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000021175",
+  "name": "CNA FINANCIAL CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000021344",
+  "name": "COCA COLA CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000021510",
+  "name": "COHERENT,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000021665",
+  "name": "COLGATE-PALMOLIVE COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000023082",
+  "name": "COMPUTER SCIENCES CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000023111",
+  "name": "COMPUTER TASK GROUP, INCORPORATED",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000023666",
+  "name": "HILLSHIRE BRANDS CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000024090",
+  "name": "CITIZENS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000024545",
+  "name": "MOLSON COORS BEVERAGE COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000024741",
+  "name": "CORNING INC /NY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000025232",
+  "name": "COUSINS PROPERTIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000026172",
+  "name": "CUMMINS INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000027419",
+  "name": "TARGET CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000027904",
+  "name": "DELTA AIR LINES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000029332",
+  "name": "THE DIXIE GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000029534",
+  "name": "DOLLAR GENERAL CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000029669",
+  "name": "RR Donnelley & Sons Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000029915",
+  "name": "DOW CHEMICAL CO /DE/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000029989",
+  "name": "OMNICOM GROUP INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000030305",
+  "name": "DUCOMMUN INC /DE/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000030554",
+  "name": "DUPONT E I DE NEMOURS & CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000031277",
+  "name": "EATON CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000031462",
+  "name": "ECOLAB INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000032604",
+  "name": "EMERSON ELECTRIC CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000033769",
+  "name": "BOB EVANS FARMS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000034088",
+  "name": "Exxon Mobil Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000034903",
+  "name": "Federal Realty Investment Trust",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000036104",
+  "name": "US BANCORP \\DE\\",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000037996",
+  "name": "FORD MOTOR CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000038009",
+  "name": "Ford Motor Credit Co LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000039263",
+  "name": "Cullen/Frost Bankers, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000039911",
+  "name": "GAP, INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000040533",
+  "name": "GENERAL DYNAMICS CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000040545",
+  "name": "General Electric Company",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000040554",
+  "name": "GENERAL ELECTRIC CAPITAL CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000040704",
+  "name": "GENERAL MILLS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000040987",
+  "name": "GENUINE PARTS CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000042582",
+  "name": "THE GOODYEAR TIRE & RUBBER COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000042682",
+  "name": "GORMAN RUPP CO",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000045012",
+  "name": "HALLIBURTON COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000047129",
+  "name": "HERTZ CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000047217",
+  "name": "HP\u00a0INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000048039",
+  "name": "HOLLYFRONTIER CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000048465",
+  "name": "HORMEL FOODS CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000049071",
+  "name": "Humana Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000049600",
+  "name": "EASTGROUP PROPERTIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000049826",
+  "name": "ILLINOIS TOOL WORKS INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000050863",
+  "name": "INTEL CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000051143",
+  "name": "INTERNATIONAL BUSINESS MACHINES CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000051434",
+  "name": "INTERNATIONAL PAPER CO /NEW/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000051548",
+  "name": "INTERNATIONAL SPEEDWAY CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000052988",
+  "name": "Jacobs Engineering Group Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000053669",
+  "name": "JOHNSON CONTROLS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000054441",
+  "name": "FURMANITE CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000055067",
+  "name": "Kellogg Company",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000055785",
+  "name": "KIMBERLY-CLARK CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000056594",
+  "name": "KOMATSU LTD",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000056873",
+  "name": "THE KROGER CO.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000056978",
+  "name": "KULICKE & SOFFA INDUSTRIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000059478",
+  "name": "ELI LILLY & Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000059558",
+  "name": "Lincoln National Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000060086",
+  "name": "LOEWS CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000060667",
+  "name": "LOWES COMPANIES INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000060977",
+  "name": "LYDALL, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000062234",
+  "name": "MARCUS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000062709",
+  "name": "Marsh\u00a0& McLennan Companies, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000063908",
+  "name": "MCDONALDS CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000064279",
+  "name": "MCMORAN EXPLORATION CO /DE/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000064670",
+  "name": "MEDTRONIC INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000064803",
+  "name": "CVS HEALTH CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000065270",
+  "name": "METHODE ELECTRONICS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000065984",
+  "name": "ENTERGY CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000066740",
+  "name": "3M COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000069488",
+  "name": "Myers Industries, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000069891",
+  "name": "National Beverage Corp.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000070318",
+  "name": "TENET HEALTHCARE CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000070415",
+  "name": "GP STRATEGIES CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000070858",
+  "name": "Bank of America Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000071829",
+  "name": "Newpark Resources, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000072333",
+  "name": "NORDSTROM, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000072903",
+  "name": "XCEL ENERGY INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000072971",
+  "name": "WELLS FARGO & COMPANY/MN",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000073020",
+  "name": "NORTHWEST NATURAL GAS COMPANY",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000073309",
+  "name": "NUCOR CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000074208",
+  "name": "UDR, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000075208",
+  "name": "Overseas Shipholding Group, Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000075252",
+  "name": "Owens & Minor, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000075362",
+  "name": "PACCAR Inc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000076334",
+  "name": "PARKER-HANNIFIN CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000077281",
+  "name": "Pennsylvania Real Estate Investment Trust",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000077476",
+  "name": "PepsiCo, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000077776",
+  "name": "PHH CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000077877",
+  "name": "PDC Energy, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000078003",
+  "name": "PFIZER INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000079879",
+  "name": "PPG INDUSTRIES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000080424",
+  "name": "THE PROCTER & GAMBLE COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000080661",
+  "name": "PROGRESSIVE CORP/OH/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000081061",
+  "name": "PUBLIX SUPER MARKETS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000081362",
+  "name": "QUAKER CHEMICAL CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000084129",
+  "name": "RITE AID CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000084246",
+  "name": "RLI Corp",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000084290",
+  "name": "ROBBINS & MYERS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000085974",
+  "name": "RYLAND GROUP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000086144",
+  "name": "SAFEWAY INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000086312",
+  "name": "Travelers Companies,\u00a0Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000087347",
+  "name": "SCHLUMBERGER LIMITED/NV",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000089800",
+  "name": "SHERWIN WILLIAMS CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000092122",
+  "name": "The Southern Company",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000092380",
+  "name": "SOUTHWEST AIRLINES CO.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000093389",
+  "name": "STANDARD MOTOR PRODUCTS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000093410",
+  "name": "Chevron Corp",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000093556",
+  "name": "STANLEY BLACK\u00a0& DECKER, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000093751",
+  "name": "STATE STREET CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000095304",
+  "name": "SUNOCO INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000095521",
+  "name": "SUPERVALU INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000096021",
+  "name": "SYSCO CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000096223",
+  "name": "Jefferies Financial Group Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000096763",
+  "name": "PULSE ELECTRONICS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000096831",
+  "name": "TECUMSEH PRODUCTS CO",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000097134",
+  "name": "TENNANT CO",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000097476",
+  "name": "TEXAS INSTRUMENTS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000097745",
+  "name": "THERMO FISHER SCIENTIFIC INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000098222",
+  "name": "TIDEWATER INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000098677",
+  "name": "TOOTSIE ROLL INDUSTRIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000100493",
+  "name": "TYSON FOODS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000100517",
+  "name": "UNITED AIRLINES HOLDINGS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000100726",
+  "name": "UNIFI, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000100885",
+  "name": "UNION PACIFIC CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000101778",
+  "name": "Marathon Oil Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000101829",
+  "name": "RAYTHEON TECHNOLOGIES CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000101830",
+  "name": "SPRINT CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000103145",
+  "name": "VEECO INSTRUMENTS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000103379",
+  "name": "V F CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000104169",
+  "name": "WALMART INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000104207",
+  "name": "WALGREEN CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000106640",
+  "name": "WHIRLPOOL CORP /DE/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000107687",
+  "name": "WINNEBAGO INDUSTRIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000108772",
+  "name": "XEROX CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000109198",
+  "name": "THE TJX COMPANIES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000109758",
+  "name": "ARBITRON INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000200406",
+  "name": "JOHNSON & JOHNSON",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000202058",
+  "name": "L3HARRIS TECHNOLOGIES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000217346",
+  "name": "Textron Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000230211",
+  "name": "FEDERAL EXPRESS CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000277135",
+  "name": "W.W. Grainger, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000277638",
+  "name": "THE DAVEY TREE EXPERT COMPANY",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000277948",
+  "name": "CSX CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000278041",
+  "name": "INTERNATIONAL SHIPHOLDING CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000278166",
+  "name": "CAVCO INDUSTRIES INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000310158",
+  "name": "Merck\u00a0& Co., Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000310568",
+  "name": "MICROSEMI CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000310764",
+  "name": "STRYKER CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000313616",
+  "name": "Danaher Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000315189",
+  "name": "DEERE & CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000315293",
+  "name": "Aon plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000316300",
+  "name": "EXCO RESOURCES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000317891",
+  "name": "RICOH CO LTD",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000318154",
+  "name": "Amgen Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000318996",
+  "name": "KEY ENERGY SERVICES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000320187",
+  "name": "NIKE, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000320193",
+  "name": "Apple Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000320575",
+  "name": "Pioneer Energy Services LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000350403",
+  "name": "PHI INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000350698",
+  "name": "AUTONATION, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000350917",
+  "name": "EMULEX CORP /DE/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000351017",
+  "name": "AUTOINFO, INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000351817",
+  "name": "SilverBow Resources, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000351834",
+  "name": "SUNOPTA INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000352915",
+  "name": "UNIVERSAL HEALTH SERVICES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000354950",
+  "name": "HOME DEPOT,\u00a0INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000356130",
+  "name": "EMC INSURANCE GROUP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000356309",
+  "name": "NEW JERSEY RESOURCES CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000701221",
+  "name": "CIGNA CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000701345",
+  "name": "US AIRWAYS GROUP INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000701985",
+  "name": "BATH & BODY WORKS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000702165",
+  "name": "NORFOLK SOUTHERN CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000703361",
+  "name": "INTEGRATED DEVICE TECHNOLOGY INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000710846",
+  "name": "FUSHI COPPERWELD, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000711513",
+  "name": "BOEING CAPITAL CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000713676",
+  "name": "PNC FINANCIAL SERVICES GROUP, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000715957",
+  "name": "Dominion Energy, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000716634",
+  "name": "Reading International, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000717423",
+  "name": "MURPHY OIL CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000719164",
+  "name": "SCHAWK INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000719733",
+  "name": "Key Tronic Corp",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000719739",
+  "name": "SVB FINANCIAL GROUP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000721371",
+  "name": "Cardinal Health, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000722723",
+  "name": "Hanger, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000723125",
+  "name": "Micron Technology, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000726865",
+  "name": "THE LINCOLN NATIONAL LIFE INSURANCE COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000727920",
+  "name": "Equitable Financial Life Insurance Company",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000729580",
+  "name": "BEL FUSE INC /NJ",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000731766",
+  "name": "UNITEDHEALTH GROUP INCORPORATED",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000732712",
+  "name": "VERIZON COMMUNICATIONS INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000732717",
+  "name": "AT&T INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000742112",
+  "name": "INVACARE CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000742278",
+  "name": "RPC, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000745732",
+  "name": "Ross Stores, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000749037",
+  "name": "ORBOTECH LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000749098",
+  "name": "MAGNA INTERNATIONAL INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000752714",
+  "name": "McGRATH RENTCORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000753308",
+  "name": "NEXTERA ENERGY, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000763901",
+  "name": "POPULAR, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000764180",
+  "name": "Altria Group, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000764401",
+  "name": "Insteel Industries, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000764478",
+  "name": "BEST BUY CO.,\u00a0INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000766829",
+  "name": "SJW GROUP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000768899",
+  "name": "TrueBlue, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000769520",
+  "name": "THE MIDDLEBY CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000773840",
+  "name": "HONEYWELL INTERNATIONAL INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000773910",
+  "name": "ANADARKO PETROLEUM CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000776867",
+  "name": "WHITE MOUNTAINS INSURANCE GROUP,\u00a0LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000777917",
+  "name": "PRUCO LIFE INSURANCE CO",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000778164",
+  "name": "ALTO INGREDIENTS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000778438",
+  "name": "BERRY PETROLEUM COMPANY, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000779152",
+  "name": "HENRY JACK & ASSOCIATES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000785956",
+  "name": "J&J SNACK FOODS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000788784",
+  "name": "PUBLIC SERVICE ENTERPRISE GROUP INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000788965",
+  "name": "Hallador Energy Company",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000789019",
+  "name": "Microsoft Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000789460",
+  "name": "WORLD FUEL SERVICES CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000789570",
+  "name": "MGM Resorts International",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000789868",
+  "name": "FEIHE INTERNATIONAL INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000790070",
+  "name": "EMC CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000790526",
+  "name": "RadNet, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000790703",
+  "name": "TECH DATA CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000791519",
+  "name": "STAPLES INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000791915",
+  "name": "CYPRESS SEMICONDUCTOR CORP /DE/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000791963",
+  "name": "OPPENHEIMER HOLDINGS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000793306",
+  "name": "Blue Dolphin Energy Company",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000794367",
+  "name": "MACY'S, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000797468",
+  "name": "OCCIDENTAL PETROLEUM CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000797721",
+  "name": "VIASAT INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000798955",
+  "name": "COST PLUS INC/CA/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000799850",
+  "name": "AMERICA\u2019S CAR-MART, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000800240",
+  "name": "ODP Corp",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000802481",
+  "name": "PILGRIM\u2019S PRIDE CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000804269",
+  "name": "General Motors Financial Company, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000804328",
+  "name": "QUALCOMM INC/DE",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000807707",
+  "name": "VOXX INTERNATIONAL CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000807882",
+  "name": "JACK IN THE BOX INC /NEW/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000808362",
+  "name": "Baker Hughes Holdings LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000808450",
+  "name": "NAVISTAR INTERNATIONAL CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000813762",
+  "name": "ICAHN ENTERPRISES L.P.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000813828",
+  "name": "Paramount Global",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000815097",
+  "name": "Carnival Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000816159",
+  "name": "AIR METHODS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000818686",
+  "name": "TEVA PHARMACEUTICAL INDUSTRIES LTD",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000820027",
+  "name": "AMERIPRISE FINANCIAL, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000820318",
+  "name": "II-VI INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000821127",
+  "name": "BOSTON PRIVATE FINANCIAL HOLDINGS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000821189",
+  "name": "EOG RESOURCES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000823277",
+  "name": "CHS Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000823768",
+  "name": "Waste Management, Inc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000824142",
+  "name": "AAON, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000826083",
+  "name": "DELL INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000826773",
+  "name": "UNITEK GLOBAL SERVICES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000827052",
+  "name": "EDISON INTERNATIONAL",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000829224",
+  "name": "Starbucks Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000829365",
+  "name": "Nam Tai Property Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000831001",
+  "name": "Citigroup\u00a0Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000831259",
+  "name": "Freeport-McMoRan Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000831327",
+  "name": "IMPERIAL SUGAR CO /NEW/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000833444",
+  "name": "JOHNSON CONTROLS INTERNATIONAL PLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000834071",
+  "name": "TOYOTA MOTOR CREDIT CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000835357",
+  "name": "MONY LIFE INSURANCE CO OF AMERICA",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000842162",
+  "name": "LEAR CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000842294",
+  "name": "EXCEL MARITIME CARRIERS LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000844965",
+  "name": "TETRA Technologies, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000849547",
+  "name": "BLACK BOX CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000850141",
+  "name": "HORACE MANN EDUCATORS CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000851310",
+  "name": "HARMONIC INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000851520",
+  "name": "EXPONENT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000856982",
+  "name": "MERIT MEDICAL SYSTEMS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000857737",
+  "name": "ICONIX BRAND GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000857855",
+  "name": "UNITED COMMUNITY BANKS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000858339",
+  "name": "CAESARS HOLDINGS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000858877",
+  "name": "CISCO SYSTEMS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000859368",
+  "name": "MEDICIS PHARMACEUTICAL CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000859598",
+  "name": "SEACOR HOLDINGS INC /NEW/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000860546",
+  "name": "CORPORATE OFFICE PROPERTIES TRUST",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000860730",
+  "name": "HCA Healthcare, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000861884",
+  "name": "RELIANCE STEEL & ALUMINUM CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000864233",
+  "name": "O CHARLEYS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000865436",
+  "name": "WHOLE FOODS MARKET INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000866291",
+  "name": "ALLEGRO MICROSYSTEMS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000866374",
+  "name": "FLEX LTD.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000866787",
+  "name": "AUTOZONE INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000866829",
+  "name": "HELIX ENERGY SOLUTIONS GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000867374",
+  "name": "ELECTRONICS FOR IMAGING INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000868857",
+  "name": "AECOM",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000870826",
+  "name": "iMedia Brands,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000871763",
+  "name": "MANPOWERGROUP INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000873303",
+  "name": "Sarepta Therapeutics, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000874238",
+  "name": "STERLING CONSTRUCTION COMPANY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000874761",
+  "name": "THE AES CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000874766",
+  "name": "THE HARTFORD FINANCIAL SERVICES GROUP, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000875045",
+  "name": "BIOGEN INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000875159",
+  "name": "XL GROUP LTD",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000876167",
+  "name": "PROGRESS SOFTWARE CORP /MA",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000878522",
+  "name": "STEWART ENTERPRISES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000878526",
+  "name": "Natus Medical Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000879575",
+  "name": "TERRA NITROGEN CO L P /DE",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000880285",
+  "name": "ENBRIDGE ENERGY PARTNERS LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000880804",
+  "name": "PREMIERE GLOBAL SERVICES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000882095",
+  "name": "GILEAD SCIENCES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000882184",
+  "name": "HORTON D R INC /DE/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000883943",
+  "name": "CHRISTOPHER & BANKS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000883980",
+  "name": "FIRST DATA CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000884624",
+  "name": "ORTHOFIX MEDICAL INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000884905",
+  "name": "PRAXAIR INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000885550",
+  "name": "CREDIT ACCEPTANCE CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000885590",
+  "name": "Bausch Health Companies Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000885639",
+  "name": "KOHL\u2019S CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000885721",
+  "name": "EXPRESS SCRIPTS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000885740",
+  "name": "SAPIENS INTERNATIONAL CORPORATION N.V.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000886158",
+  "name": "20230930-DK-BUTTERFLY-1, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000887568",
+  "name": "ZOLL MEDICAL CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000888491",
+  "name": "OMEGA HEALTHCARE INVESTORS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000890319",
+  "name": "TAUBMAN CENTERS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000892553",
+  "name": "CHART INDUSTRIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000892907",
+  "name": "SPORT CHALET INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000894081",
+  "name": "Air Transport Services Group, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000895126",
+  "name": "CHESAPEAKE ENERGY CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000895417",
+  "name": "EQUITY LIFESTYLE PROPERTIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000895421",
+  "name": "Morgan Stanley",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000896159",
+  "name": "Chubb Ltd",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000896985",
+  "name": "DESTINATION MATERNITY CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000897067",
+  "name": "CYMER INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000898174",
+  "name": "REINSURANCE GROUP OF AMERICA INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000898293",
+  "name": "JABIL INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000899051",
+  "name": "ALLSTATE CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000899394",
+  "name": "HARBOR DIVERSIFIED, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000899866",
+  "name": "ALEXION PHARMACEUTICALS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000899923",
+  "name": "MYRIAD GENETICS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000902739",
+  "name": "NBCUNIVERSAL MEDIA, LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000906338",
+  "name": "TARO PHARMACEUTICAL INDUSTRIES LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000906465",
+  "name": "QCR HOLDINGS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000908311",
+  "name": "CREATIVE MEDIA & COMMUNITY TRUST CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000909281",
+  "name": "ONEOK PARTNERS LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000909832",
+  "name": "COSTCO WHOLESALE CORP /NEW",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000911177",
+  "name": "Casella Waste Systems, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000912562",
+  "name": "GIBRALTAR INDUSTRIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000912593",
+  "name": "SUN COMMUNITIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000913760",
+  "name": "StoneX Group Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000913885",
+  "name": "TRIQUINT SEMICONDUCTOR INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000915358",
+  "name": "SIGMATRON INTERNATIONAL, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000915389",
+  "name": "EASTMAN CHEMICAL CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000916085",
+  "name": "HEALTH NET INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000917851",
+  "name": "Vale S.A.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000918581",
+  "name": "CIBER INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000918962",
+  "name": "POINDEXTER J B & CO INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000918964",
+  "name": "INTERNATIONAL TEXTILE GROUP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000920033",
+  "name": "BANK JOS A CLOTHIERS INC /DE/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000920148",
+  "name": "LABORATORY CORPORATION OF AMERICA HOLDINGS",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000920522",
+  "name": "ESSEX PROPERTY TRUST, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000920760",
+  "name": "LENNAR CORP /NEW/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000921638",
+  "name": "SSR Mining Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000921825",
+  "name": "FIRST INDUSTRIAL REALTY TRUST, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000922224",
+  "name": "PPL Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000922475",
+  "name": "ITT EDUCATIONAL SERVICES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000923603",
+  "name": "FELCOR LODGING TRUST INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000924901",
+  "name": "VERIS RESIDENTIAL, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000927003",
+  "name": "ADVANCED ENERGY INDUSTRIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000927066",
+  "name": "DAVITA INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000927355",
+  "name": "TESSCO Technologies Incorporated",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000927628",
+  "name": "CAPITAL\u00a0ONE\u00a0FINANCIAL\u00a0CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000927653",
+  "name": "McKESSON CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000928054",
+  "name": "FLOTEK INDUSTRIES INC/CN",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000929940",
+  "name": "ASPENTECH Corp",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000930810",
+  "name": "RECKSON OPERATING PARTNERSHIP LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000931336",
+  "name": "DEAN FOODS COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000931584",
+  "name": "UNIVERSAL STAINLESS\u00a0& ALLOY PRODUCTS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000932787",
+  "name": "STMICROELECTRONICS N.V.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000934612",
+  "name": "Burlington Northern Santa Fe, LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000935703",
+  "name": "DOLLAR TREE, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000936340",
+  "name": "DTE Energy Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000936468",
+  "name": "LOCKHEED MARTIN CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000937834",
+  "name": "Metropolitan Life Insurance Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0000943184",
+  "name": "EVER-GLORY INTERNATIONAL GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000944314",
+  "name": "LIFE STORAGE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000945114",
+  "name": "Global Industrial Company",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000945699",
+  "name": "IXYS CORP /DE/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0000949373",
+  "name": "EINSTEIN NOAH RESTAURANT GROUP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001000177",
+  "name": "NORDIC AMERICAN TANKERS Ltd",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001000228",
+  "name": "HENRY SCHEIN INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001001039",
+  "name": "WALT DISNEY CO/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001001082",
+  "name": "DISH NETWORK CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001001250",
+  "name": "The Estee Lauder Companies Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001001606",
+  "name": "BLOUNT INTERNATIONAL INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001004440",
+  "name": "CONSTELLATION ENERGY GROUP INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001004980",
+  "name": "PG&E Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001004989",
+  "name": "SPAR Group, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001005010",
+  "name": "ARTHROCARE CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001005201",
+  "name": "ASSERTIO THERAPEUTICS, INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001005284",
+  "name": "UNIVERSAL DISPLAY CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001005414",
+  "name": "TOYS R US INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001006837",
+  "name": "INNOVATE CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001008848",
+  "name": "Acorda Therapeutics, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001010858",
+  "name": "Fairmount Santrol Holdings Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001012140",
+  "name": "ONYX PHARMACEUTICALS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001012569",
+  "name": "Energy Transfer, LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001013237",
+  "name": "FactSet Research Systems Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001013462",
+  "name": "ANSYS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001013871",
+  "name": "NRG Energy,\u00a0Inc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001014473",
+  "name": "VERISIGN INC/CA",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001014507",
+  "name": "SIRONA DENTAL SYSTEMS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001016125",
+  "name": "ULTIMATE SOFTWARE GROUP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001017712",
+  "name": "HOT TOPIC INC /CA/",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001018003",
+  "name": "INGRAM MICRO INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001018164",
+  "name": "Willis Lease Finance Corp",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001018724",
+  "name": "AMAZON.COM, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001019361",
+  "name": "ROFIN SINAR TECHNOLOGIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001019849",
+  "name": "Penske Automotive Group, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001020859",
+  "name": "UNITED NATURAL FOODS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001021860",
+  "name": "NOV INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001022368",
+  "name": "SCHIFF NUTRITION INTERNATIONAL, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001022408",
+  "name": "ePlus inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001023128",
+  "name": "LITHIA MOTORS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001024519",
+  "name": "CNH GLOBAL N V",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001024725",
+  "name": "TENNECO INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001027207",
+  "name": "EPIQ SYSTEMS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001027884",
+  "name": "CHICAGO BRIDGE & IRON CO N V",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001029299",
+  "name": "DELTEK, INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001031203",
+  "name": "Group 1 Automotive, Inc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001031296",
+  "name": "FIRSTENERGY CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001031308",
+  "name": "BENTLEY SYSTEMS, INCORPORATED",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001032208",
+  "name": "SEMPRA ENERGY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001033012",
+  "name": "Flagstar Bancorp, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001034563",
+  "name": "ICAHN ENTERPRISES HOLDINGS L.P.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001035002",
+  "name": "VALERO ENERGY CORP/TX",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001037976",
+  "name": "Jones Lang LaSalle Incorporated",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001039399",
+  "name": "FormFactor,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001039684",
+  "name": "ONEOK, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001040130",
+  "name": "PETMED EXPRESS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001040426",
+  "name": "SYNTEL INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001040570",
+  "name": "GEOEYE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001041061",
+  "name": "YUM! BRANDS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001042642",
+  "name": "DISH DBS Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001042776",
+  "name": "Piedmont Office Realty Trust, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001043277",
+  "name": "C.H. ROBINSON WORLDWIDE, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001043337",
+  "name": "STONERIDGE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001043509",
+  "name": "SONIC AUTOMOTIVE, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001045450",
+  "name": "EPR PROPERTIES",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001046311",
+  "name": "CHOICE HOTELS INTERNATIONAL INC /DE",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001047122",
+  "name": "RAYTHEON CO/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001047862",
+  "name": "Consolidated Edison, Inc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001048268",
+  "name": "IES Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001048286",
+  "name": "MARRIOTT INTERNATIONAL INC /MD/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001048911",
+  "name": "FedEx Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001049521",
+  "name": "Mercury Systems, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001050915",
+  "name": "Quanta Services, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001053532",
+  "name": "LASALLE HOTEL PROPERTIES",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001053650",
+  "name": "OMEGA PROTEIN CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001054579",
+  "name": "HASTINGS ENTERTAINMENT INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001054833",
+  "name": "COVENTRY HEALTH CARE INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001055294",
+  "name": "KANSAS CITY SOUTHERN DE MEXICO, S.A. DE C.V.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001055454",
+  "name": "SCHOOL SPECIALTY INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001056239",
+  "name": "L 3 COMMUNICATIONS HOLDINGS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001056288",
+  "name": "FEDERATED HERMES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001056696",
+  "name": "MANHATTAN ASSOCIATES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001057060",
+  "name": "MarineMax, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001057352",
+  "name": "COSTAR GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001058290",
+  "name": "Cognizant Technology Solutions Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001060391",
+  "name": "Republic Services, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001061219",
+  "name": "ENTERPRISE PRODUCTS PARTNERS L.P.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001062822",
+  "name": "Lexicon Pharmaceuticals, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001063344",
+  "name": "HERSHA HOSPITALITY TRUST",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001063494",
+  "name": "KBW, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001065088",
+  "name": "eBay Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001065280",
+  "name": "Netflix, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001065696",
+  "name": "LKQ CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001065865",
+  "name": "JANUS CAPITAL GROUP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001066104",
+  "name": "CEB INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001067837",
+  "name": "AUDACY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001067983",
+  "name": "BERKSHIRE HATHAWAY INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001068875",
+  "name": "Blucora, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001069183",
+  "name": "Axon Enterprise,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001069878",
+  "name": "TREX CO INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001070081",
+  "name": "PTC THERAPEUTICS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001070235",
+  "name": "BlackBerry Limited",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001070304",
+  "name": "ORIX Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001070423",
+  "name": "PLAINS ALL AMERICAN PIPELINE LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001070494",
+  "name": "ACADIA PHARMACEUTICALS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001071739",
+  "name": "CENTENE CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001075415",
+  "name": "DIVERSIFIED HEALTHCARE TRUST",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001075531",
+  "name": "Booking Holdings Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001077183",
+  "name": "NEOGENOMICS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001081316",
+  "name": "BERKSHIRE HATHAWAY ENERGY COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001082554",
+  "name": "United Therapeutics Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001084048",
+  "name": "Ziff Davis, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001084869",
+  "name": "1 800 FLOWERS COM INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001085869",
+  "name": "PERFICIENT, INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001088856",
+  "name": "CORCEPT THERAPEUTICS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001089511",
+  "name": "ALASKA COMMUNICATIONS SYSTEMS GROUP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001090012",
+  "name": "DEVON ENERGY CORP/DE",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001090061",
+  "name": "OMNOVA SOLUTIONS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001090727",
+  "name": "United Parcel Service, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001091587",
+  "name": "ABB LTD",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001091667",
+  "name": "Charter Communications, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001091883",
+  "name": "CIRCOR INTERNATIONAL,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001092796",
+  "name": "Smith\u00a0& Wesson Brands, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001093082",
+  "name": "HUTTIG BUILDING PRODUCTS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001093557",
+  "name": "DEXCOM, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001094005",
+  "name": "SINA CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001094517",
+  "name": "TOYOTA MOTOR CORP/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001095565",
+  "name": "HEALTHSTREAM INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001097149",
+  "name": "ALIGN TECHNOLOGY,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001098277",
+  "name": "WEBSENSE INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001099219",
+  "name": "METLIFE, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001101680",
+  "name": "DZS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001103982",
+  "name": "Mondelez International, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001104349",
+  "name": "CAPELLA EDUCATION CO",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001104485",
+  "name": "NORTHERN OIL AND GAS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001105705",
+  "name": "TIME WARNER INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001107332",
+  "name": "DENDREON CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001108109",
+  "name": "COMMUNITY HEALTH SYSTEMS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001108134",
+  "name": "BERKSHIRE HILLS BANCORP,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001108524",
+  "name": "salesforce.com, inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001109357",
+  "name": "EXELON CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001110647",
+  "name": "OCLARO, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001110783",
+  "name": "MONSANTO CO /NEW/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001113232",
+  "name": "AXCELIS TECHNOLOGIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001113809",
+  "name": "BUILD-A-BEAR WORKSHOP INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001115128",
+  "name": "Quotient Technology Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001115836",
+  "name": "BELMOND LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001115837",
+  "name": "MOBILE TELESYSTEMS PJSC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001119769",
+  "name": "CERAGON NETWORKS LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001122304",
+  "name": "AETNA INC /PA/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001124140",
+  "name": "EXACT SCIENCES CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001124198",
+  "name": "FLUOR CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001126328",
+  "name": "PRINCIPAL FINANCIAL GROUP, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001130258",
+  "name": "ACME PACKET INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001131096",
+  "name": "ATHENAHEALTH INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001131227",
+  "name": "HORNBECK OFFSHORE SERVICES INC /LA",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001131324",
+  "name": "GENOMIC HEALTH, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001132105",
+  "name": "SPORTSMAN\u2019S WAREHOUSE HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001133421",
+  "name": "NORTHROP GRUMMAN CORP /DE/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001133470",
+  "name": "CALAVO GROWERS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001134203",
+  "name": "TALEO CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001137774",
+  "name": "PRUDENTIAL FINANCIAL INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001137789",
+  "name": "Seagate Technology Holdings plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001138118",
+  "name": "CBRE GROUP, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001140184",
+  "name": "IPAYMENT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001140859",
+  "name": "AMERISOURCEBERGEN CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001141391",
+  "name": "Mastercard Inc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001142417",
+  "name": "NEXSTAR MEDIA GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001143908",
+  "name": "ACCENTURE SCA",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001144519",
+  "name": "BUNGE LIMITED",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001145197",
+  "name": "INSULET CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001156039",
+  "name": "ANTHEM, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001157408",
+  "name": "Stride, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001158449",
+  "name": "ADVANCE AUTO PARTS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001161154",
+  "name": "Energy Transfer Operating, L.P.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001163165",
+  "name": "ConocoPhillips",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001163302",
+  "name": "United States Steel Corp",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001163609",
+  "name": "SOUTH DAKOTA SOYBEAN PROCESSORS LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001164727",
+  "name": "NEWMONT CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001166126",
+  "name": "OLD COPPER COMPANY, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001166663",
+  "name": "TSAKOS ENERGY NAVIGATION LIMITED",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001166691",
+  "name": "Comcast Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001169264",
+  "name": "SYNIVERSE HOLDINGS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001169988",
+  "name": "BOINGO WIRELESS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001170010",
+  "name": "CARMAX, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001170534",
+  "name": "MITEL NETWORKS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001170650",
+  "name": "MEDCO HEALTH SOLUTIONS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001171759",
+  "name": "RED ROBIN GOURMET BURGERS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001177394",
+  "name": "TD SYNNEX CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001177609",
+  "name": "Five Below, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001179821",
+  "name": "BIRKS GROUP INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001179929",
+  "name": "MOLINA HEALTHCARE, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001180079",
+  "name": "SILVER SPRING NETWORKS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001196501",
+  "name": "HMS HOLDINGS CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001202273",
+  "name": "GOLFSMITH INTERNATIONAL HOLDINGS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001210677",
+  "name": "First Advantage Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001212458",
+  "name": "PROOFPOINT INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001219601",
+  "name": "CROWN HOLDINGS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001223862",
+  "name": "INFOBLOX INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001232241",
+  "name": "JOURNAL COMMUNICATIONS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001232582",
+  "name": "ASHFORD HOSPITALITY TRUST, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001237746",
+  "name": "Endurance International Group Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001241199",
+  "name": "CAPITALSOURCE INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001261654",
+  "name": "UNIVERSAL TECHNICAL INSTITUTE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001261694",
+  "name": "TESSERA TECHNOLOGIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001262976",
+  "name": "Cimpress plc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001267097",
+  "name": "TRW AUTOMOTIVE HOLDINGS CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001267238",
+  "name": "Assurant, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001268671",
+  "name": "TNS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001271024",
+  "name": "LINKEDIN CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001271833",
+  "name": "CCO Holdings, LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001275283",
+  "name": "REYNOLDS AMERICAN INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001276187",
+  "name": "ENERGY TRANSFER LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001276520",
+  "name": "GENWORTH FINANCIAL, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001278680",
+  "name": "ISHARES GOLD TRUST",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001279363",
+  "name": "WELLCARE HEALTH PLANS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001280452",
+  "name": "MONOLITHIC POWER SYSTEMS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001281774",
+  "name": "TOWN SPORTS INTERNATIONAL HOLDINGS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001283140",
+  "name": "HOLLY ENERGY PARTNERS LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001283630",
+  "name": "AMERICAN CAMPUS COMMUNITIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001283699",
+  "name": "T-MOBILE US, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001287151",
+  "name": "XERIUM TECHNOLOGIES INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001287950",
+  "name": "SPREADTRUM COMMUNICATIONS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001288403",
+  "name": "W&T OFFSHORE INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001288469",
+  "name": "MaxLinear, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001288776",
+  "name": "GOOGLE INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001289785",
+  "name": "ATLANTIC BROADBAND FINANCE, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001289877",
+  "name": "SFL Corporation Ltd.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001294924",
+  "name": "INVENSENSE INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001296205",
+  "name": "ZAGG INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001296286",
+  "name": "LONGHAI STEEL INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001297184",
+  "name": "Amphastar Pharmaceuticals, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001297336",
+  "name": "ReachLocal Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001297401",
+  "name": "DREAMWORKS ANIMATION SKG, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001297989",
+  "name": "EXLSERVICE HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001299704",
+  "name": "ADVANCE AMERICA, CASH ADVANCE CENTERS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001300514",
+  "name": "LAS VEGAS SANDS CORP.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001301106",
+  "name": "NATIONAL INTERSTATE CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001302362",
+  "name": "MECHEL PAO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001305168",
+  "name": "ARC Document Solutions, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001307748",
+  "name": "INVENTRUST PROPERTIES CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001307954",
+  "name": "Huntsman Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001308161",
+  "name": "TWENTY-FIRST CENTURY FOX, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001308606",
+  "name": "SPIRIT REALTY CAPITAL, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001310067",
+  "name": "SEARS HOLDINGS CORP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001316317",
+  "name": "CHINA TECHFAITH WIRELESS COMMUNICATION TECHNOLOGY LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001316625",
+  "name": "SILICON GRAPHICS INTERNATIONAL CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001316631",
+  "name": "LIBERTY GLOBAL, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001316835",
+  "name": "BUILDERS FIRSTSOURCE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001318084",
+  "name": "Core-Mark Holding Company, LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001318484",
+  "name": "CITI TRENDS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001318605",
+  "name": "Tesla, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001321655",
+  "name": "Palantir Technologies Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001321732",
+  "name": "Penumbra, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001323468",
+  "name": "GLOBAL PARTNERS LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001323531",
+  "name": "MAIDENFORM BRANDS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001323653",
+  "name": "COLEMAN CABLE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001324424",
+  "name": "EXPEDIA GROUP, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001326160",
+  "name": "DUKE ENERGY CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001326200",
+  "name": "GENCO SHIPPING & TRADING LIMITED",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001326801",
+  "name": "Meta Platforms, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001329099",
+  "name": "Baidu, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001332602",
+  "name": "CARIBOU COFFEE COMPANY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001332639",
+  "name": "SEASPAN CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001333172",
+  "name": "NAVIOS MARITIME HOLDINGS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001335258",
+  "name": "LIVE NATION ENTERTAINMENT, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001337298",
+  "name": "FUTUREFUEL CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001337619",
+  "name": "Envestnet, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001339605",
+  "name": "H&E Equipment Services, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001339947",
+  "name": "VIACOM INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001341439",
+  "name": "Oracle Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001342287",
+  "name": "General Finance Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001342338",
+  "name": "HIMAX TECHNOLOGIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001346980",
+  "name": "CHAPARRAL ENERGY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001350381",
+  "name": "INNERWORKINGS INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001350593",
+  "name": "MUELLER WATER PRODUCTS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001352010",
+  "name": "EPAM SYSTEMS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001352081",
+  "name": "CARDINAL ETHANOL, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001353283",
+  "name": "Splunk Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001353970",
+  "name": "China XD Plastics Co Ltd",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001354217",
+  "name": "VOLCANO CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001354327",
+  "name": "PGT Innovations, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001355096",
+  "name": "QURATE RETAIL, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001357204",
+  "name": "DUNKIN' BRANDS GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001357615",
+  "name": "KBR, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001359527",
+  "name": "SGS INTERNATIONAL, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001361937",
+  "name": "HARVEST OIL & GAS CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001362468",
+  "name": "Allegiant Travel Company",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001364250",
+  "name": "Douglas Emmett, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001364479",
+  "name": "HERC HOLDINGS INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001364742",
+  "name": "BlackRock, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001366246",
+  "name": "Glu Mobile Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001367832",
+  "name": "AURORA DIAGNOSTICS HOLDINGS LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001370880",
+  "name": "Mandiant, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001372612",
+  "name": "Box, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001375365",
+  "name": "SUPER MICRO COMPUTER, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001376972",
+  "name": "HOMEINNS HOTEL GROUP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001376986",
+  "name": "TENNESSEE VALLEY AUTHORITY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001377013",
+  "name": "TIME WARNER CABLE INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001378718",
+  "name": "WESCO AIRCRAFT HOLDINGS, INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001378950",
+  "name": "CARPARTS.COM, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001379714",
+  "name": "SABINE PASS LNG, L.P.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001380393",
+  "name": "FORTRESS INVESTMENT GROUP LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001380509",
+  "name": "HFF, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001382821",
+  "name": "Redfin Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001383875",
+  "name": "LRI HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001384905",
+  "name": "RingCentral, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001385157",
+  "name": "TE CONNECTIVITY LTD.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001385187",
+  "name": "COVIDIEN PLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001386926",
+  "name": "KKR FINANCIAL HOLDINGS LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001388133",
+  "name": "ShoreTel Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001388430",
+  "name": "CAI International, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001389050",
+  "name": "ARCHROCK, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001390213",
+  "name": "CORPORATE PROPERTY ASSOCIATES 17 - GLOBAL INC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001390777",
+  "name": "THE BANK OF NEW YORK MELLON CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001396033",
+  "name": "Lumber Liquidators Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001396814",
+  "name": "PACIRA BIOSCIENCES,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001398551",
+  "name": "YONGYE INTERNATIONAL, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001399935",
+  "name": "FRANCESCA'S HOLDINGS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001401521",
+  "name": "American Coastal Insurance Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001401680",
+  "name": "Cornerstone OnDemand Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001402057",
+  "name": "CDW Corp",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001403161",
+  "name": "VISA INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001403256",
+  "name": "SCULPTOR CAPITAL MANAGEMENT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001403849",
+  "name": "PERFECT WORLD CO., LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001404655",
+  "name": "HubSpot, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001406587",
+  "name": "Forestar Group Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001406666",
+  "name": "Calix, Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001407298",
+  "name": "FLY LEASING LIMITED",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001407623",
+  "name": "RETAIL OPPORTUNITY INVESTMENTS CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001408198",
+  "name": "MSCI INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001408287",
+  "name": "ZEP INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001413329",
+  "name": "Philip Morris International Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001415020",
+  "name": "THOMPSON CREEK METALS CO INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001415301",
+  "name": "Del Frisco's Restaurant Group, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001415336",
+  "name": "Zeltiq Aesthetics Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001417754",
+  "name": "LINIU TECHNOLOGY GROUP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001418121",
+  "name": "APPLE HOSPITALITY REIT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001419178",
+  "name": "ARTIO GLOBAL INVESTORS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001419428",
+  "name": "VANTAGE DRILLING CO",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001420302",
+  "name": "LOGMEIN, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001424182",
+  "name": "BROADSTONE NET LEASE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001425923",
+  "name": "COLE REAL ESTATE INVESTMENTS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001428336",
+  "name": "HEALTHEQUITY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001433270",
+  "name": "ANTERO RESOURCES CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001434588",
+  "name": "GRAND CANYON EDUCATION,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001434620",
+  "name": "ILG, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001436126",
+  "name": "Mistras Group,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001437260",
+  "name": "NAVIOS MARITIME ACQUISITION CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001438133",
+  "name": "Tandem Diabetes Care, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001438731",
+  "name": "ALJ Regional Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001439288",
+  "name": "ZURN WATER SOLUTIONS CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001443669",
+  "name": "Proto Labs, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001449801",
+  "name": "CHINA GERUI ADVANCED MATERIALS GROUP LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001452751",
+  "name": "Nimble Storage Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001452857",
+  "name": "STEEL PARTNERS HOLDINGS L.P.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001453090",
+  "name": "WEATHERFORD INTERNATIONAL LTD./SWITZERLAND",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001456016",
+  "name": "GRIFFIN CAPITAL ESSENTIAL ASSET REIT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001458696",
+  "name": "CHANGYOU.COM LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001459200",
+  "name": "ALARM.COM HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001463101",
+  "name": "Enphase Energy, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001463172",
+  "name": "ZENDESK, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001465112",
+  "name": "DIRECTV",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001466258",
+  "name": "TRANE TECHNOLOGIES PLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001467373",
+  "name": "Accenture plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001467858",
+  "name": "General Motors Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001468327",
+  "name": "RENT THE RUNWAY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001468666",
+  "name": "SecureWorks Corp.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001469367",
+  "name": "Sunrun Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001470157",
+  "name": "SHANDA GAMES LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001474432",
+  "name": "Pure Storage, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001476204",
+  "name": "PHILLIPS EDISON & COMPANY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001476246",
+  "name": "TROPICANA ENTERTAINMENT INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001481506",
+  "name": "PAA NATURAL GAS STORAGE LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001482430",
+  "name": "KBS REAL ESTATE INVESTMENT TRUST III, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001482512",
+  "name": "Hudson Pacific Properties, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001487101",
+  "name": "KEYW HOLDING CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001487712",
+  "name": "AIR LEASE CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001488075",
+  "name": "INTRALINKS HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001489147",
+  "name": "SMART TECHNOLOGIES INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001489393",
+  "name": "LYONDELLBASELL INDUSTRIES N.V.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001490366",
+  "name": "CHINA NEW BORUN CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001492658",
+  "name": "WRIGHT MEDICAL GROUP N.V.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001493637",
+  "name": "RDA MICROELECTRONICS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001494904",
+  "name": "Global Indemnity Group, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001495320",
+  "name": "VERA BRADLEY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001495569",
+  "name": "MOTOROLA MOBILITY HOLDINGS, INC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001495932",
+  "name": "EXP WORLD HOLDINGS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001497645",
+  "name": "SUMMIT HOTEL PROPERTIES,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001498828",
+  "name": "THE HOWARD HUGHES CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001498864",
+  "name": "APPLE REIT TEN, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001499620",
+  "name": "TAL Education Group",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001499912",
+  "name": "GLOBAL BROKERAGE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001500308",
+  "name": "ISOFTSTONE HOLDINGS LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001501919",
+  "name": "SSI INVESTMENTS II LTD",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001502012",
+  "name": "QR ENERGY, LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001502756",
+  "name": "ZAYO GROUP LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001504461",
+  "name": "NGL Energy Partners LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001506307",
+  "name": "KINDER MORGAN, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001507079",
+  "name": "Floor & Decor Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001507881",
+  "name": "USMD HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001509991",
+  "name": "Kosmos Energy Ltd.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001510295",
+  "name": "Marathon Petroleum Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001512762",
+  "name": "Coherus BioSciences,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001513153",
+  "name": "FCA US LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001517007",
+  "name": "MARINA DISTRICT FINANCE COMPANY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001517022",
+  "name": "AKEBIA THERAPEUTICS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001517396",
+  "name": "STRATASYS LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001517783",
+  "name": "EVERTEC GROUP, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001518909",
+  "name": "BLACK ELK ENERGY OFFSHORE OPERATIONS, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001520262",
+  "name": "Alkermes plc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001521036",
+  "name": "LANTHEUS HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001521332",
+  "name": "APTIV PLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001521847",
+  "name": "AMPLIFY ENERGY CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001522727",
+  "name": "USA Compression Partners, LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001524190",
+  "name": "iKang Healthcare Group, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001524931",
+  "name": "CHUY\u2019S HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001525494",
+  "name": "58.com\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001527469",
+  "name": "ATHENE HOLDING LTD",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001527636",
+  "name": "Autohome Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001528061",
+  "name": "COMMUNITY CHOICE FINANCIAL INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001528849",
+  "name": "RH",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001528903",
+  "name": "AVG TECHNOLOGIES N.V.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001529192",
+  "name": "Vipshop Holdings Limited",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001531152",
+  "name": "BJ\u2019S WHOLESALE CLUB HOLDINGS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001532063",
+  "name": "EXPRESS SCRIPTS HOLDING CO.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001532288",
+  "name": "ARMSTRONG ENERGY, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001532981",
+  "name": "Eros STX Global Corp",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001534504",
+  "name": "PBF ENERGY INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001534675",
+  "name": "TECNOGLASS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001534701",
+  "name": "Phillips 66",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001535013",
+  "name": "ACL I CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001535527",
+  "name": "CROWDSTRIKE HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001535929",
+  "name": "VOYA FINANCIAL, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001538990",
+  "name": "STORE CAPITAL LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001541401",
+  "name": "EMPIRE STATE REALTY TRUST, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001543151",
+  "name": "UBER TECHNOLOGIES, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001545158",
+  "name": "KRAFT FOODS GROUP, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001547459",
+  "name": "Natural Grocers by Vitamin Cottage, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001549802",
+  "name": "JD.com, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001549872",
+  "name": "XURA, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001549922",
+  "name": "Summit Midstream Partners, LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001551152",
+  "name": "ABBVIE INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001551182",
+  "name": "EATON CORPORATION plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001552275",
+  "name": "SUNOCO LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001553023",
+  "name": "CYRUSONE INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001559289",
+  "name": "GULF SOUTH PIPELINE COMPANY, LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001560327",
+  "name": "RAPID7, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001561032",
+  "name": "Healthcare Trust, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001561951",
+  "name": "US FOODS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001562039",
+  "name": "CST BRANDS, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001566011",
+  "name": "PBF HOLDING COMPANY LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001566445",
+  "name": "BRE SELECT HOTELS CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001567094",
+  "name": "CNH Industrial N.V.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001568162",
+  "name": "The Necessity Retail REIT, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001568651",
+  "name": "Oscar Health, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001570585",
+  "name": "Liberty Global plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001570774",
+  "name": "TRAC INTERMODAL LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001570827",
+  "name": "Victory Capital Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001571371",
+  "name": "SUMMIT MATERIALS, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001571996",
+  "name": "Dell Technologies Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001573516",
+  "name": "MURPHY USA INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001574815",
+  "name": "BMC STOCK HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001575051",
+  "name": "Sisecam Resources LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001575360",
+  "name": "FTD COMPANIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001575828",
+  "name": "Expro Group Holdings N.V.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001575965",
+  "name": "Gaming and Leisure Properties, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001576018",
+  "name": "SiriusPoint Ltd",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001576169",
+  "name": "Benefitfocus, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001577095",
+  "name": "CLUBCORP HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001577368",
+  "name": "QTS Realty Trust, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001577552",
+  "name": "Alibaba Group Holding Limited",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001578685",
+  "name": "MIDCOAST ENERGY PARTNERS, L.P.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001578845",
+  "name": "ALLERGAN PLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001579252",
+  "name": "JASON INDUSTRIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001579823",
+  "name": "NewAge, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001580905",
+  "name": "Installed Building Products, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001581164",
+  "name": "EXTENDED STAY AMERICA, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001581990",
+  "name": "PLAINS GP HOLDINGS LP",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001582616",
+  "name": "NORCRAFT COMPANIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001582961",
+  "name": "DigitalOcean Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001584509",
+  "name": "Aramark",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001585854",
+  "name": "SunEdison Semiconductor Ltd",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001587246",
+  "name": "Cypress Environmental Partners, L.P.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001588238",
+  "name": "RICE ENERGY INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001590714",
+  "name": "Element Solutions Inc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001590955",
+  "name": "Paycom Software, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001591587",
+  "name": "ASSETMARK FINANCIAL HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001591698",
+  "name": "PAYLOCITY HOLDING CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001596993",
+  "name": "DORIAN LPG LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001597503",
+  "name": "NORTHSTAR ASSET MANAGEMENT GROUP INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001597672",
+  "name": "RAYONIER ADVANCED MATERIALS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001597835",
+  "name": "Cheetah Mobile Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001598674",
+  "name": "CASPER SLEEP INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001599222",
+  "name": "Memorial Resource Development Corp.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001599947",
+  "name": "TerraForm Power NY Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001600033",
+  "name": "e.l.f. Beauty, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001603286",
+  "name": "DOMINION ENERGY MIDSTREAM PARTNERS, LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001603923",
+  "name": "Weatherford International plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001604821",
+  "name": "NATERA,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001606366",
+  "name": "EL POLLO LOCO HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001606909",
+  "name": "PANGAEA LOGISTICS SOLUTIONS, LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001607250",
+  "name": "Transocean Partners LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001607716",
+  "name": "VIVINT SOLAR, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001609471",
+  "name": "WATERMARK LODGING TRUST, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001610466",
+  "name": "Shell Midstream Partners, L.P.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001611547",
+  "name": "URBAN EDGE PROPERTIES",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001611702",
+  "name": "BrightSphere Investment Group plc",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001613103",
+  "name": "Medtronic plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001614178",
+  "name": "YEXT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001616533",
+  "name": "PENGUIN SOLUTIONS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001617640",
+  "name": "ZILLOW GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001618673",
+  "name": "Performance Food Group Company",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001618921",
+  "name": "WALGREENS BOOTS ALLIANCE, INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001619954",
+  "name": "INOVALON HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001621434",
+  "name": "Black Stone Minerals, L.P.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001623595",
+  "name": "Atlas Energy Group, LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001623613",
+  "name": "MYLAN II B.V.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001627857",
+  "name": "SailPoint\u00a0Technologies\u00a0Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001630132",
+  "name": "BOJANGLES', INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001632127",
+  "name": "Cable One, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001633441",
+  "name": "Secoo Holding Limited",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001633651",
+  "name": "TALLGRASS ENERGY, LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001633917",
+  "name": "PayPal Holdings, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001634038",
+  "name": "ProSight Global, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001635282",
+  "name": "Rimini Street, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001635984",
+  "name": "NATIONAL WESTERN LIFE GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001636023",
+  "name": "WESTROCK CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001637459",
+  "name": "Kraft Heinz Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001637558",
+  "name": "CONSOL Coal Resources LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001637757",
+  "name": "Clearway Energy LLC",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001639947",
+  "name": "CARE CAPITAL PROPERTIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001641614",
+  "name": "CPI Card Group Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001643953",
+  "name": "Purple Innovation, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001644406",
+  "name": "HOSTESS BRANDS,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001645026",
+  "name": "PBF ENERGY CO LLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001645590",
+  "name": "HEWLETT PACKARD ENTERPRISE COMPANY",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001646228",
+  "name": "AT HOME GROUP INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001646972",
+  "name": "Albertsons Companies, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001647339",
+  "name": "ACCENTURE HOLDINGS PLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001647509",
+  "name": "FOREST CITY REALTY TRUST, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001647513",
+  "name": "NOBLE MIDSTREAM PARTNERS LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001649744",
+  "name": "DULUTH HOLDINGS INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001651094",
+  "name": "ELEVATE CREDIT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001651308",
+  "name": "BEIGENE,\u00a0LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001652044",
+  "name": "ALPHABET INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001652133",
+  "name": "OASIS MIDSTREAM PARTNERS LP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001653242",
+  "name": "The Bank of N.T. Butterfield\u00a0& Son Limited",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001655075",
+  "name": "ARMSTRONG FLOORING, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001655210",
+  "name": "BEYOND MEAT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001657197",
+  "name": "COTIVITI HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001660134",
+  "name": "Okta, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001660280",
+  "name": "TENABLE HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001664703",
+  "name": "BLOOM ENERGY CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001665918",
+  "name": "US FOODS HOLDING CORP.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001666134",
+  "name": "BlackLine, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001666700",
+  "name": "DuPont de Nemours, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001669162",
+  "name": "KINSALE CAPITAL GROUP, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001670541",
+  "name": "Adient plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001671933",
+  "name": "TRADE DESK, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001675149",
+  "name": "Alcoa Corp",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001679268",
+  "name": "Mammoth Energy Services, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001681459",
+  "name": "TechnipFMC plc",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001681622",
+  "name": "VAREX IMAGING CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001683695",
+  "name": "INTERNATIONAL MONEY EXPRESS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001688568",
+  "name": "DXC TECHNOLOGY CO",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001690666",
+  "name": "XPERI CORP",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001692819",
+  "name": "Vistra Corp.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001693256",
+  "name": "Select Water Solutions,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001698990",
+  "name": "Magnolia Oil & Gas Corp",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001698991",
+  "name": "Accel Entertainment, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001699039",
+  "name": "RANGER ENERGY SERVICES,\u00a0INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001699136",
+  "name": "Cactus,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001701040",
+  "name": "CISION LTD.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001701051",
+  "name": "WideOpenWest, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001701605",
+  "name": "Baker Hughes Co",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001701732",
+  "name": "ALTAIR ENGINEERING INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001703956",
+  "name": "CONCRETE PUMPING HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001704596",
+  "name": "EVO Payments, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001704711",
+  "name": "FUNKO, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001705873",
+  "name": "BERRY CORPORATION (bry)",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001707753",
+  "name": "Elastic N.V.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001707925",
+  "name": "LINDE PLC",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001708035",
+  "name": "ECOVYST INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001710583",
+  "name": "SWITCH, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001713683",
+  "name": "ZSCALER, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001721386",
+  "name": "LANDSEA HOMES CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001723690",
+  "name": "Bilibili Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001724570",
+  "name": "DATTO HOLDING CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001725033",
+  "name": "X Financial",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001725255",
+  "name": "AdaptHealth Corp.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001730168",
+  "name": "Broadcom Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001732845",
+  "name": "WestRock Company",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001734722",
+  "name": "UiPath, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001739936",
+  "name": "Momentive Global Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001739940",
+  "name": "Cigna Corporation",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001743907",
+  "name": "Sun Country Airlines Holdings,\u00a0Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001744489",
+  "name": "WALT DISNEY CO/",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001747079",
+  "name": "BALLY\u2019S CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001747748",
+  "name": "QUALTRICS INTERNATIONAL INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001748824",
+  "name": "Acadian Asset Management Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001750593",
+  "name": "Fangdd Network Group Ltd.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001751143",
+  "name": "ATLAS TECHNICAL CONSULTANTS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001751788",
+  "name": "Dow Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001754301",
+  "name": "Fox Corp",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001755672",
+  "name": "Corteva, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001766368",
+  "name": "Mayville Engineering Company, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001766400",
+  "name": "The Pennant Group, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001768267",
+  "name": "CERENCE INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001772016",
+  "name": "BellRing Brands, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001781335",
+  "name": "OTIS WORLDWIDE CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001783180",
+  "name": "CARRIER GLOBAL CORPORATION",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001788882",
+  "name": "ROOT, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001789940",
+  "name": "First Watch Restaurant Group, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001792044",
+  "name": "VIATRIS INC.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001792789",
+  "name": "DOORDASH, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001794669",
+  "name": "SHIFT4 PAYMENTS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001796209",
+  "name": "APi Group Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001801170",
+  "name": "CLOVER HEALTH INVESTMENTS, CORP. /DE",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001802974",
+  "name": "MISSION PRODUCE, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001803696",
+  "name": "XPERI HOLDING CORPORATION",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001811074",
+  "name": "Texas Pacific Land Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001819796",
+  "name": "GCM Grosvenor Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001820721",
+  "name": "ARRAY TECHNOLOGIES, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001822928",
+  "name": "HOLLEY INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001823529",
+  "name": "Enact Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001826889",
+  "name": "Beachbody Company, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001827075",
+  "name": "CVENT HOLDING CORP.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001829864",
+  "name": "TaskUs, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001834622",
+  "name": "Hayward Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001835681",
+  "name": "PowerSchool Holdings, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001845815",
+  "name": "Payoneer Global Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001849253",
+  "name": "RYAN SPECIALTY GROUP HOLDINGS, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001859285",
+  "name": "HireRight Holdings Corporation",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001866550",
+  "name": "THOUGHTWORKS HOLDING, INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001866633",
+  "name": "Consensus Cloud Solutions, Inc.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001867072",
+  "name": "Kyndryl Holdings, Inc.",
+  "sample": "study01"
+ },
+ {
+  "cik": "0001878897",
+  "name": "DOUGLAS ELLIMAN INC.",
+  "sample": "held_out"
+ },
+ {
+  "cik": "0001915657",
+  "name": "HF SINCLAIR CORP",
+  "sample": "study01"
+ }
+]
